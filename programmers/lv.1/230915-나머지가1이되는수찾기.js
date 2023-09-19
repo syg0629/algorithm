@@ -7,3 +7,5 @@ function solution(n) {
   const answer = arr.filter((el) => n % el === 1);
   return answer[0];
 }
+
+// 리팩토링 다시 시도해 볼 것

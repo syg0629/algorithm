@@ -19,3 +19,5 @@ function solution(a, b) {
     return sum;
   }
 }
+
+// 리팩토링 다시 시도해 볼 것

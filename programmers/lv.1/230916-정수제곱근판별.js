@@ -2,8 +2,5 @@
 
 function solution(n) {
   const sqrt = Math.sqrt(n);
-  if (Number.isInteger(sqrt)) {
-    return Math.pow(sqrt + 1, 2);
-  }
-  return -1;
+  return Number.isInteger(sqrt) ? Math.pow(sqrt + 1, 2) : -1;
 }

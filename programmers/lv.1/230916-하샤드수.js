@@ -1,12 +1,8 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12947
 
 function solution(x) {
-  let sum = 0;
-  String(x)
+  const sum = String(x)
     .split("")
-    .forEach((n) => (sum += Number(n)));
-  if (x % sum === 0) {
-    return true;
-  }
-  return false;
+    .reduce((p, c) => p + Number(c), 0);
+  return x % sum === 0 ? true : false;
 }

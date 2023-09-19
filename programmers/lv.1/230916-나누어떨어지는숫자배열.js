@@ -2,9 +2,5 @@
 
 function solution(arr, divisor) {
   arr = arr.filter((n) => n % divisor === 0);
-  if (arr.length !== 0) {
-    return arr.sort((a, b) => a - b);
-  }
-  arr.push(-1);
-  return arr;
+  return arr.length !== 0 ? arr.sort((a, b) => a - b) : [-1];
 }
