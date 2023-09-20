@@ -5,5 +5,5 @@ function solution(price, money, count) {
   for (let i = 0; i <= count; i++) {
     amt += price * i;
   }
-  return money > amt ? 0 : Math.abs(money - amt);
+  return money > amt ? 0 : amt - money;
 }

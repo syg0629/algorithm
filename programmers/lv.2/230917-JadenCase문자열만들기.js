@@ -4,5 +4,5 @@ function solution(s) {
   s = s.toLowerCase().split(" ");
   copyS = s.map((n) => n.charAt().toUpperCase());
   s = s.map((n, i) => n.replace(n.charAt(), copyS[i]));
-  return s.reduce((prev, curr) => prev + " " + curr);
+  return s.join(" ");
 }

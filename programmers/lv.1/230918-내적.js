@@ -1,8 +1,5 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/70128
 
 function solution(a, b) {
-  a = a.map((n, i) => n * b[i]).reduce((p, c) => p + c);
-  return a;
+  return a.reduce((p, c, i) => p + c * b[i], 0);
 }
-
-//reduce에 대해 자세히 공부할 것.......
