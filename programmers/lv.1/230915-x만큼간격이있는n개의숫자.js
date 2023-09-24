@@ -1,7 +1,6 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12954
+import _ from "lodash";
 
 function solution(x, n) {
-  return Array(n)
-    .fill(x)
-    .map((value, index) => (index + 1) * x);
+  return _.range(1, n + 1).map((i) => i * x);
 }

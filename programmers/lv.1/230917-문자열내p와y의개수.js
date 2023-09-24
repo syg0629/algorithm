@@ -3,13 +3,16 @@
 function solution(s) {
   let pCount = 0;
   let yCount = 0;
-  s.toUpperCase()
-    .split("")
-    .forEach((n) => (n === "P" ? pCount++ : n === "Y" ? yCount++ : ""));
-  if (pCount === yCount) {
-    return true;
+
+  for (const n of s.toUpperCase().split("")) {
+    if (n === "P") {
+      pCount++;
+    } else if (n === "Y") {
+      yCount++;
+    }
   }
-  return false;
+
+  return pCount === yCount;
 }
 
-// 리팩토링 다시 시도해 볼 것
+// 다시 해보기
