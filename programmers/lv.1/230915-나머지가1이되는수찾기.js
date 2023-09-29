@@ -1,11 +1,10 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/87389
 
 function solution(n) {
-  const arr = Array(n)
-    .fill(n)
-    .map((prev, curr) => curr + 1);
-  const answer = arr.filter((el) => n % el === 1);
-  return answer[0];
+  for (let i = 0; i < n; i++) {
+    if (n % i === 1) return i;
+  }
 }
 
-// 리팩토링 다시 시도해 볼 것
+console.log(solution(10)); //3
+console.log(solution(12)); //11

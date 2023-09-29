@@ -3,5 +3,5 @@
 function solution(n) {
   return String(n)
     .split("")
-    .reduce((prev, curr) => prev + Number(curr), 0);
+    .reduce((x, y) => x + Number(y), 0);
 }

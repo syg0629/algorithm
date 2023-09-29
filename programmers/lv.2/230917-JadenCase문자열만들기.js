@@ -1,8 +1,12 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12951
 
 function solution(s) {
-  s = s.toLowerCase().split(" ");
-  copyS = s.map((n) => n.charAt().toUpperCase());
-  s = s.map((n, i) => n.replace(n.charAt(), copyS[i]));
-  return s.join(" ");
+  return s
+    .toLowerCase()
+    .split(" ")
+    .map((n) => n.replace(n.charAt(), n.charAt().toUpperCase()))
+    .join(" ");
 }
+
+console.log(solution("3people unFollowed me"));
+console.log(solution("for the last week"));
