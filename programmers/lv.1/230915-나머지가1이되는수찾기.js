@@ -1,7 +1,8 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/87389
+//230930 - 가장 작은 '자연수' 조건 존재
 
 function solution(n) {
-  for (let i = 0; i < n; i++) {
+  for (let i = 1; i < n; i++) {
     if (n % i === 1) return i;
   }
 }

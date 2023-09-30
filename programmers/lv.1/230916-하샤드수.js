@@ -1,9 +1,11 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12947
+//230930 - 성능 저하 원인 분석
 
 function solution(x) {
   const sum = String(x)
     .split("")
-    .reduce((p, c) => p + Number(c), 0);
+    .map(Number)
+    .reduce((x, y) => x + y, 0);
   return x % sum === 0;
 }
 

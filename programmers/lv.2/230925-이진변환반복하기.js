@@ -1,16 +1,19 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/70129
-import _ from "lodash";
 
 function solution(s) {
-  let remove = 0;
-  let arr0 = 0;
+  let removeZero = 0;
+  let zeroLength = 0;
   let count = 0;
   while (s.length > 1) {
     s = s.split("");
-    arr0 = s.filter((x) => x == 0).length;
-    remove += arr0;
-    s = _.range(1, s.length - arr0 + 1, 0).length.toString(2);
+    zeroLength = s.filter((x) => x == 0).length;
+    removeZero += zeroLength;
+    s = (s.length - zeroLength).toString(2);
     count++;
   }
-  return [count, remove];
+  return [count, removeZero];
 }
+
+console.log(solution("110010101001")); //[3,8]
+console.log(solution("01110")); //[3,3]
+console.log(solution("1111111")); //[4,1]
