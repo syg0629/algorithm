@@ -1,7 +1,9 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12910
+export {};
 
-function solution(arr, divisor) {
-  arr = arr.filter((n) => n % divisor === 0).sort((a, b) => a - b) : [-1];
+function solution(arr: number[], divisor: number): number[] {
+  arr = arr.filter((n) => n % divisor === 0);
+  return arr.length !== 0 ? arr.sort((a, b) => a - b) : [-1];
 }
 
 console.log(solution([5, 9, 7, 10], 5)); //[ 5, 10 ]

@@ -36,7 +36,7 @@
 //   return arr.length === 0 ? true : false;
 // }
 
-function solution(s) {
+function solution(s: string): boolean {
   let count = 0;
   for (let i = 0; i < s.length; i++) {
     if (s.charAt(i) === "(") {

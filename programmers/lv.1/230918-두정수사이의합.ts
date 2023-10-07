@@ -11,7 +11,9 @@
 //   return sum;
 // }
 
-function solution(a, b) {
+export {};
+
+function solution(a: number, b: number): number {
   let sum = 0;
   const arr = [a, b];
   arr.sort((a, b) => a - b);

@@ -1,6 +1,7 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12916
+export {};
 
-function solution(s) {
+function solution(s: string): Boolean {
   let pCount = 0;
   let yCount = 0;
 
@@ -16,3 +17,5 @@ function solution(s) {
 }
 
 // 다시 해보기
+console.log(solution("pPoooyY")); //true
+console.log(solution("Pyy")); //false

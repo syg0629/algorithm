@@ -1,7 +1,8 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12947
 //230930 - 성능 저하 원인 분석
+export {};
 
-function solution(x) {
+function solution(x: number): Boolean {
   const sum = String(x)
     .split("")
     .map(Number)
