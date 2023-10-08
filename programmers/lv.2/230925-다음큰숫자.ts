@@ -14,7 +14,9 @@
 // 제한 사항
 // n은 1,000,000 이하의 자연수 입니다.
 
-function solution(n) {
+export {};
+
+function solution(n: number): number {
   const oneCountOfN = count1InBinary(n);
   for (let i = n + 1; ; i++) {
     if (oneCountOfN === count1InBinary(i)) {
@@ -24,9 +26,12 @@ function solution(n) {
 }
 
 // count1InBinary: 어떤 숫자 num을 2진수로 표현했을때 1의 갯수
-function count1InBinary(num) {
+function count1InBinary(num: number): number {
   return num
     .toString(2)
     .split("")
-    .filter((x) => x == 1).length;
+    .filter((x) => x == "1").length;
 }
+
+console.log(solution(78)); //83
+console.log(solution(15)); //23

@@ -1,7 +1,8 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/42842
 //231004 - 다시 해보기
+export {};
 
-function solution(brown, yellow) {
+function solution(brown: number, yellow: number): number[] {
   const sum = brown + yellow;
   //제한사항 brown이 8 이상이므로 i는 3부터
   for (let i = 3; i < sum; i++) {
@@ -11,6 +12,7 @@ function solution(brown, yellow) {
       return [width, i];
     }
   }
+  return [];
 }
 
 console.log(solution(10, 2)); //[4,3]

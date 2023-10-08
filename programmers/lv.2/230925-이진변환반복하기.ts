@@ -1,17 +1,18 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/70129
+export {};
 
-function solution(s) {
-  let removeZero = 0;
+function solution(s: string): number[] {
+  let removedZeros = 0;
   let zeroLength = 0;
   let count = 0;
   while (s.length > 1) {
-    s = s.split("");
-    zeroLength = s.filter((x) => x == 0).length;
-    removeZero += zeroLength;
+    const splitedS = s.split("");
+    zeroLength = splitedS.filter((x) => x == "0").length;
+    removedZeros += zeroLength;
     s = (s.length - zeroLength).toString(2);
     count++;
   }
-  return [count, removeZero];
+  return [count, removedZeros];
 }
 
 console.log(solution("110010101001")); //[3,8]
