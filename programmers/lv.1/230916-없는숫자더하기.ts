@@ -2,7 +2,7 @@
 export {};
 
 function solution(numbers: number[]): number {
-  return 45 - numbers.reduce((p, c) => p + c, 0);
+  return 45 - numbers.reduce((x, y) => x + y, 0);
 }
 
 console.log(solution([1, 2, 3, 4, 6, 7, 8, 0])); //14

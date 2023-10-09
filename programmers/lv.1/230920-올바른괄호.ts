@@ -35,6 +35,7 @@
 //   s.split("").forEach((n) => (n === "(" ? arr.push("(") : arr.pop()));
 //   return arr.length === 0 ? true : false;
 // }
+export {};
 
 function solution(s: string): boolean {
   let count = 0;
