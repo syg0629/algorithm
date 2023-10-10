@@ -2,9 +2,9 @@
 export {};
 
 function solution(n: number, m: number): number[] {
-  let a = [n, m];
-  a.sort((a, b) => b - a);
-  for (let i = a[1]; i > 0; i--) {
+  let a: number[] = [n, m];
+  a.sort((a: number, b: number) => b - a);
+  for (let i: number = a[1]; i > 0; i--) {
     if (a[0] % i === 0 && a[1] % i === 0) return [i, (a[0] * a[1]) / i];
   }
   return [];

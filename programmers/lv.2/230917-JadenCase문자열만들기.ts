@@ -5,7 +5,7 @@ function solution(s: string): string {
   return s
     .toLowerCase()
     .split(" ")
-    .map((n) => n.replace(n.charAt(0), n.charAt(0).toUpperCase()))
+    .map((n: string) => n.replace(n.charAt(0), n.charAt(0).toUpperCase()))
     .join(" ");
 }
 

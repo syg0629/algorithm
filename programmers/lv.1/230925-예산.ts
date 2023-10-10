@@ -2,8 +2,8 @@
 export {};
 
 function solution(d: number[], budget: number): number {
-  d.sort((a, b) => a - b);
-  while (d.reduce((x, y) => x + y, 0) > budget) {
+  d.sort((a: number, b: number) => a - b);
+  while (d.reduce((x: number, y: number) => x + y, 0) > budget) {
     d.pop();
   }
   return d.length;

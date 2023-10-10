@@ -3,10 +3,10 @@
 export {};
 
 function solution(brown: number, yellow: number): number[] {
-  const sum = brown + yellow;
+  const sum: number = brown + yellow;
   //제한사항 brown이 8 이상이므로 i는 3부터
-  for (let i = 3; i < sum; i++) {
-    let width = sum / i;
+  for (let i: number = 3; i < sum; i++) {
+    let width: number = sum / i;
 
     if ((width - 2) * (i - 2) === yellow) {
       return [width, i];

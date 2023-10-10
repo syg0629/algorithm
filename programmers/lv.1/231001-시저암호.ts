@@ -2,9 +2,9 @@
 export {};
 
 function solution(s: string, n: number): string {
-  const convertASCII = s.split("").map((x) => x.charCodeAt(0));
+  const convertASCII: number[] = s.split("").map((x) => x.charCodeAt(0));
 
-  for (let i = 0; i < convertASCII.length; i++) {
+  for (let i: number = 0; i < convertASCII.length; i++) {
     //공백은 밀어도 공백, ASCII : 32
     if (convertASCII[i] !== 32) {
       //대문자 ASCII : 65 ~ 90

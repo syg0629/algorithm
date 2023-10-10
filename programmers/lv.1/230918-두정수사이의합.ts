@@ -14,9 +14,9 @@
 export {};
 
 function solution(a: number, b: number): number {
-  let sum = 0;
+  let sum: number = 0;
   const arr = [a, b];
-  arr.sort((a, b) => a - b);
+  arr.sort((a: number, b: number) => a - b);
   while (arr[0] <= arr[1]) {
     sum += arr[0];
     arr[0]++;

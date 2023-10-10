@@ -38,8 +38,8 @@
 export {};
 
 function solution(s: string): boolean {
-  let count = 0;
-  for (let i = 0; i < s.length; i++) {
+  let count: number = 0;
+  for (let i: number = 0; i < s.length; i++) {
     if (s.charAt(i) === "(") {
       count++;
     } else {

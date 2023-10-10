@@ -2,12 +2,12 @@
 export {};
 
 function solution(s: string): number[] {
-  let removedZeros = 0;
-  let zeroLength = 0;
-  let count = 0;
+  let removedZeros: number = 0;
+  let zeroLength: number = 0;
+  let count: number = 0;
   while (s.length > 1) {
-    const splitedS = s.split("");
-    zeroLength = splitedS.filter((x) => x == "0").length;
+    const splitedS: string[] = s.split("");
+    zeroLength = splitedS.filter((x: string) => x == "0").length;
     removedZeros += zeroLength;
     s = (s.length - zeroLength).toString(2);
     count++;

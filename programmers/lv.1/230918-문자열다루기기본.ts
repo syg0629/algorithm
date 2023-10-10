@@ -2,7 +2,7 @@
 export {};
 
 function solution(s: string): boolean {
-  let reg = /^\d{4}$|^\d{6}$/;
+  let reg: RegExp = /^\d{4}$|^\d{6}$/;
   return reg.test(s);
 }
 

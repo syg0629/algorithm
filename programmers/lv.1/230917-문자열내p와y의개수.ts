@@ -2,8 +2,8 @@
 export {};
 
 function solution(s: string): Boolean {
-  let pCount = 0;
-  let yCount = 0;
+  let pCount: number = 0;
+  let yCount: number = 0;
 
   for (const n of s.toUpperCase().split("")) {
     if (n === "P") {

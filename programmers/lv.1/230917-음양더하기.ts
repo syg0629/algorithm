@@ -2,7 +2,10 @@
 export {};
 
 function solution(absolutes: number[], signs: Boolean[]): number {
-  return absolutes.reduce((x, y, i) => x + y * (signs[i] ? 1 : -1), 0);
+  return absolutes.reduce(
+    (x: number, y: number, i: number) => x + y * (signs[i] ? 1 : -1),
+    0
+  );
 }
 
 console.log(solution([4, 7, 12], [true, false, true])); //9

@@ -3,8 +3,8 @@ export {};
 
 function solution(s: string): number {
   // prettier-ignore
-  const word = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-  for (let i = 0; i <= word.length; i++) {
+  const word:string[] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+  for (let i: number = 0; i <= word.length; i++) {
     if (s.includes(word[i])) {
       s = s.replaceAll(word[i], String(i));
     }

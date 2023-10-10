@@ -17,8 +17,8 @@
 export {};
 
 function solution(n: number): number {
-  const oneCountOfN = count1InBinary(n);
-  for (let i = n + 1; ; i++) {
+  const oneCountOfN: number = count1InBinary(n);
+  for (let i: number = n + 1; ; i++) {
     if (oneCountOfN === count1InBinary(i)) {
       return i;
     }
@@ -30,7 +30,7 @@ function count1InBinary(num: number): number {
   return num
     .toString(2)
     .split("")
-    .filter((x) => x == "1").length;
+    .filter((x: string) => x == "1").length;
 }
 
 console.log(solution(78)); //83

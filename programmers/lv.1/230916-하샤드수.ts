@@ -6,7 +6,7 @@ function solution(x: number): Boolean {
   const sum = String(x)
     .split("")
     .map(Number)
-    .reduce((x, y) => x + y, 0);
+    .reduce((x: number, y: number) => x + y, 0);
   return x % sum === 0;
 }
 

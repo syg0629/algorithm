@@ -2,7 +2,7 @@
 export {};
 
 function solution(n: number): number {
-  const sqrt = Math.sqrt(n);
+  const sqrt: number = Math.sqrt(n);
   return Number.isInteger(sqrt) ? Math.pow(sqrt + 1, 2) : -1;
 }
 

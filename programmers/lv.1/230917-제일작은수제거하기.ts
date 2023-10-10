@@ -2,7 +2,7 @@
 export {};
 
 function solution(arr: number[]): number[] {
-  arr = arr.filter((n) => n !== Math.min(...arr));
+  arr = arr.filter((n: number) => n !== Math.min(...arr));
   return arr.length === 0 ? [-1] : arr;
 }
 

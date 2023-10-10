@@ -2,8 +2,8 @@
 export {};
 
 function solution(price: number, money: number, count: number): number {
-  var amt = 0;
-  for (let i = 0; i <= count; i++) {
+  let amt: number = 0;
+  for (let i: number = 0; i <= count; i++) {
     amt += price * i;
   }
   return money > amt ? 0 : amt - money;

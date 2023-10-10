@@ -2,11 +2,11 @@
 export {};
 
 function solution(sizes: number[][]): number {
-  let MaxWidth = 0;
-  let MaxHeight = 0;
-  sizes.map((x: number[]) => x.sort((a, b) => a - b));
+  let MaxWidth: number = 0;
+  let MaxHeight: number = 0;
+  sizes.map((x: number[]) => x.sort((a: number, b: number) => a - b));
 
-  for (let i = 0; i < sizes.length; i++) {
+  for (let i: number = 0; i < sizes.length; i++) {
     if (MaxWidth <= sizes[i][0]) MaxWidth = sizes[i][0];
     if (MaxHeight <= sizes[i][1]) MaxHeight = sizes[i][1];
   }

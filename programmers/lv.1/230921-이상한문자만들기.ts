@@ -3,13 +3,13 @@ export {};
 
 function solution(s: string): string {
   let arr: string[] = [];
-  const splitedS = s.split(" ");
-  for (let i = 0; i < splitedS.length; i++) {
+  const splitedS: string[] = s.split(" ");
+  for (let i: number = 0; i < splitedS.length; i++) {
     arr = arr.concat(
       splitedS[i]
         .split("")
         .reduce(
-          (x, y, idx) =>
+          (x: string, y: string, idx: number) =>
             x + (idx % 2 === 0 ? y.toUpperCase() : y.toLowerCase()),
           ""
         )

@@ -16,7 +16,7 @@ console.log(solution(["abc", "ab"], 1)); // ["ab", "abc"]
 export {};
 
 function solution(strings: string[], n: number): string[] {
-  strings.sort((a, b) => {
+  strings.sort((a: string, b: string) => {
     if (a[n] > b[n]) return 1;
     if (a[n] < b[n]) return -1;
     return a.localeCompare(b);

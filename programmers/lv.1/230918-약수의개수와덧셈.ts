@@ -2,7 +2,7 @@
 export {};
 
 function solution(left: number, right: number): number {
-  let sum = 0;
+  let sum: number = 0;
   while (left <= right) {
     if (Number.isInteger(Math.sqrt(left))) {
       sum += left++ * -1;

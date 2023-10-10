@@ -2,8 +2,8 @@
 export {};
 
 function solution(arr: number[], divisor: number): number[] {
-  arr = arr.filter((n) => n % divisor === 0);
-  return arr.length !== 0 ? arr.sort((a, b) => a - b) : [-1];
+  arr = arr.filter((n: number) => n % divisor === 0);
+  return arr.length !== 0 ? arr.sort((a: number, b: number) => a - b) : [-1];
 }
 
 console.log(solution([5, 9, 7, 10], 5)); //[ 5, 10 ]

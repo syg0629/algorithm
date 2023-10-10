@@ -5,7 +5,7 @@ function solution(s: string): string {
   const splitedS = s
     .split(" ")
     .map(Number)
-    .sort((a, b) => a - b);
+    .sort((a: number, b: number) => a - b);
   return splitedS.shift() + " " + splitedS.pop();
 }
 
