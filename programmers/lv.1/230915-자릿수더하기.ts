@@ -12,7 +12,7 @@ function solution(n: number): number {
   return String(n)
     .split("")
     .map(Number)
-    .reduce((x, y) => x + y);
+    .reduce((x: number, y: number) => x + y);
 }
 
 console.log(solution(123)); //6

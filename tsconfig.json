@@ -5,7 +5,9 @@
     "strict": true,
     "noImplicitAny": true,
     "moduleResolution": "Node",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "lib": ["es2021"]
   },
   "exclude": ["node_modules"]
 }
