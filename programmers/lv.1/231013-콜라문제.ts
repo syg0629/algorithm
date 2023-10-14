@@ -10,8 +10,9 @@ n : 상빈이가 가지고 있는 빈 병의 개수
 function solution(a: number, b: number, n: number): number {
   let answer: number = 0;
   while (n >= a) {
-    answer += Math.floor(n / a) * b;
-    n = Math.floor(n / a) * b + (n % a);
+    const exchangedCola = Math.floor(n / a) * b;
+    answer += exchangedCola;
+    n = exchangedCola + (n % a);
   }
   return answer;
 }
