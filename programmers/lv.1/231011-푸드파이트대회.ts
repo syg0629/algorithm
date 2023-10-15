@@ -1,6 +1,7 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/134240
 
 export {};
+import _ from "lodash";
 
 // function solution(food: number[]): string {
 //   let leftFood: string = "";
@@ -31,14 +32,24 @@ export {};
 //   return leftFood.join("") + 0 + leftFood.reverse().join("");
 // }
 
+// function solution(food: number[]): string {
+//   const placedFood: number[] = [];
+
+//   for (const [i] of food.entries()) {
+//     const checkedFood = Math.floor(food[i] / 2);
+//     placedFood.push(...Array(checkedFood).fill(i));
+//   }
+//   return placedFood.join("") + 0 + placedFood.reverse().join("");
+// }
+
 function solution(food: number[]): string {
   const placedFood: number[] = [];
 
-  for (const [i] of food.entries()) {
-    const checkedFood = Math.floor(food[i] / 2);
-    placedFood.push(...Array(checkedFood).fill(i));
+  for (const [index, value] of food.entries()) {
+    const checkedFood = Math.floor(value / 2);
+    placedFood.push(..._.times(checkedFood, () => index));
   }
-  return placedFood.join("") + 0 + placedFood.reverse().join("");
+  return placedFood.join("") + "0" + placedFood.reverse().join("");
 }
 
 console.log(solution([1, 3, 4, 6])); //"1223330333221"
