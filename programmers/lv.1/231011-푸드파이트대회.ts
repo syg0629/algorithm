@@ -42,12 +42,22 @@ import _ from "lodash";
 //   return placedFood.join("") + 0 + placedFood.reverse().join("");
 // }
 
+// function solution(food: number[]): string {
+//   const placedFood: number[] = [];
+
+//   for (const [index, value] of food.entries()) {
+//     const checkedFood = Math.floor(value / 2);
+//     placedFood.push(..._.times(checkedFood, () => index));
+//   }
+//   return placedFood.join("") + "0" + placedFood.reverse().join("");
+// }
+
 function solution(food: number[]): string {
   const placedFood: number[] = [];
 
   for (const [index, value] of food.entries()) {
     const checkedFood = Math.floor(value / 2);
-    placedFood.push(..._.times(checkedFood, () => index));
+    placedFood.push(..._.times(checkedFood, _.constant(index)));
   }
   return placedFood.join("") + "0" + placedFood.reverse().join("");
 }
