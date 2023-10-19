@@ -4,14 +4,14 @@ export {};
 function solution(s: string): number[] {
   const answer: number[] = [];
   const lastIndices: Record<string, number> = {};
-  s.split("").map((x: string, i: number) => {
-    if (lastIndices[x] === undefined) {
+  for (const [index, value] of s.split("").entries()) {
+    if (lastIndices[value] === undefined) {
       answer.push(-1);
     } else {
-      answer.push(i - lastIndices[x]);
+      answer.push(index - lastIndices[value]);
     }
-    lastIndices[x] = i;
-  });
+    lastIndices[value] = index;
+  }
   return answer;
 }
 
