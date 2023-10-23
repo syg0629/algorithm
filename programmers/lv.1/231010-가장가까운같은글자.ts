@@ -9,7 +9,7 @@ function solution(s: string): number[] {
     if (lastIndex === undefined) {
       answer.push(-1);
     } else {
-      answer.push(index - lastIndex!);
+      answer.push(index - lastIndex);
     }
     lastIndices.set(value, index);
   }
