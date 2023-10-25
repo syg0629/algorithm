@@ -3,11 +3,12 @@ export {};
 
 function solution(array: number[], commands: number[][]): number[] {
   const completedComm: number[] = [];
-  for (let i = 0; i < commands.length; i++) {
-    const cutSorted = array
-      .slice(commands[i][0] - 1, commands[i][1])
-      .sort((a: number, b: number) => a - b);
-    completedComm.push(cutSorted[commands[i][2] - 1]);
+  for (const x of commands) {
+    const [cutStart, cutEnd, index]: number[] = x;
+    const cutSorted: number[] = array
+      .slice(cutStart - 1, cutEnd)
+      .sort((x: number, y: number) => x - y);
+    completedComm.push(cutSorted[index - 1]);
   }
   return completedComm;
 }
