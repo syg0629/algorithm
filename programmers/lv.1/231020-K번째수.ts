@@ -1,7 +1,10 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/42748
 export {};
 
-function solution(array: number[], commands: number[][]): number[] {
+function solution(
+  array: number[],
+  commands: [number, number, number][]
+): number[] {
   const completedComm: number[] = [];
   for (const x of commands) {
     const [cutStart, cutEnd, index]: number[] = x;
