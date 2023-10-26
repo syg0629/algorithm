@@ -7,7 +7,7 @@ function solution(
 ): number[] {
   const completedComm: number[] = [];
   for (const x of commands) {
-    const [cutStart, cutEnd, index]: number[] = x;
+    const [cutStart, cutEnd, index]: [number, number, number] = x;
     const cutSorted: number[] = array
       .slice(cutStart - 1, cutEnd)
       .sort((x: number, y: number) => x - y);
