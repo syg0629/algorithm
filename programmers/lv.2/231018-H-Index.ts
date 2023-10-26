@@ -8,7 +8,7 @@ function solution(citations: number[]): number {
     if (paperNum === value) return paperNum;
     if (paperNum > value) return paperNum - 1;
   }
-  return undefined ?? citations.length;
+  return citations.length;
 }
 
 console.log(solution([3, 0, 6, 1, 5])); //3
