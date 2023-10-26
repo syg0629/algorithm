@@ -4,8 +4,11 @@ export {};
 function solution(n: number, words: string[]): number[] {
   for (let i = 1; i < words.length; i++) {
     const num: number = (i % n) + 1;
-    const turn: number = Math.floor(i / n) + 1;
-    if (words[i - 1].slice(-1) !== words[i].slice(0, 1)) {
+    const turn: number = Math.trunc(i / n) + 1;
+    if (
+      words[i - 1].substring(words[i - 1].length - 1) !==
+      words[i].substring(0, 1)
+    ) {
       return [num, turn];
     }
     if (words.indexOf(words[i]) !== i) {
