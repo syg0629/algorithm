@@ -5,11 +5,14 @@ function solution(people: number[], limit: number): number {
   let answer: number = 0;
   people.sort((x: number, y: number) => x - y);
 
-  while (people.length > 0) {
+  while (true) {
     let heavy: number | undefined = people.pop();
     if (heavy !== undefined) {
       if (heavy + people[0] <= limit) people.shift();
       answer++;
+    }
+    if (people.length === 0) {
+      break;
     }
   }
   return answer;
