@@ -8,12 +8,14 @@ function solution(s: string): number {
 
   for (const i of s.split("").keys()) {
     const rotated: string = s.slice(i) + s.slice(0, i);
-    count += validCorBracket(rotated);
+    if (validCorBracket(rotated)) {
+      count++;
+    }
   }
   return count;
 }
 
-function validCorBracket(rotated: string): number {
+function validCorBracket(rotated: string): boolean {
   const corBracket: Record<string, string> = {
     "(": ")",
     "{": "}",
@@ -21,7 +23,6 @@ function validCorBracket(rotated: string): number {
   };
   const stack: string[] = [];
   let isValid: boolean = true;
-  let count: number = 0;
 
   for (const x of rotated) {
     if (x === "(" || x === "{" || x === "[") {
@@ -34,8 +35,7 @@ function validCorBracket(rotated: string): number {
       }
     }
   }
-  if (isValid) count++;
-  return count;
+  return isValid;
 }
 
 console.log(solution("[](){}")); //3
