@@ -10,8 +10,7 @@ function solution(people: number[], limit: number): number {
     if (heavy !== undefined) {
       if (heavy + people[0] <= limit) people.shift();
       answer++;
-    }
-    if (people.length === 0) {
+    } else {
       break;
     }
   }
