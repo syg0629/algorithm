@@ -4,30 +4,37 @@ export {};
 function solution(s: string): number {
   if (s.length % 2 !== 0) return 0;
 
+  let count: number = 0;
+
+  for (const i of s.split("").keys()) {
+    const rotated: string = s.slice(i) + s.slice(0, i);
+    count += validCorBracket(rotated);
+  }
+  return count;
+}
+
+function validCorBracket(rotated: string): number {
   const corBracket: Record<string, string> = {
     "(": ")",
     "{": "}",
     "[": "]",
   };
   const stack: string[] = [];
+  let isValid: boolean = true;
   let count: number = 0;
 
-  for (const [index] of s.split("").entries()) {
-    let isValid: boolean = true;
-    const rotated: string = s.slice(index) + s.slice(0, index);
-    for (const x of rotated) {
-      if (x === "(" || x === "{" || x === "[") {
-        stack.push(x);
-      } else {
-        const lastBracket: string | undefined = stack.pop();
-        if (lastBracket === undefined || corBracket[lastBracket] !== x) {
-          isValid = false;
-          break;
-        }
+  for (const x of rotated) {
+    if (x === "(" || x === "{" || x === "[") {
+      stack.push(x);
+    } else {
+      const lastBracket: string | undefined = stack.pop();
+      if (lastBracket === undefined || corBracket[lastBracket] !== x) {
+        isValid = false;
+        break;
       }
     }
-    if (isValid) count++;
   }
+  if (isValid) count++;
   return count;
 }
 
