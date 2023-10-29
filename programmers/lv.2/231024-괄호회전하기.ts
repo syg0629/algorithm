@@ -22,7 +22,6 @@ function validCorBracket(rotated: string): boolean {
     "[": "]",
   };
   const stack: string[] = [];
-  let isValid: boolean = true;
 
   for (const x of rotated) {
     if (x === "(" || x === "{" || x === "[") {
@@ -30,12 +29,11 @@ function validCorBracket(rotated: string): boolean {
     } else {
       const lastBracket: string | undefined = stack.pop();
       if (lastBracket === undefined || corBracket[lastBracket] !== x) {
-        isValid = false;
-        break;
+        return false;
       }
     }
   }
-  return isValid;
+  return true;
 }
 
 console.log(solution("[](){}")); //3
