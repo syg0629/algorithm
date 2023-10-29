@@ -2,10 +2,10 @@
 export {};
 
 function solution(nums: number[]): number {
-  const Dedup: Set<number> = new Set(nums);
-  const DedupNum: number = Dedup.size;
-  const Selectable: number = nums.length / 2;
-  return DedupNum > Selectable ? Selectable : DedupNum;
+  const dedup: Set<number> = new Set(nums);
+  const dedupNum: number = dedup.size;
+  const selectable: number = nums.length / 2;
+  return dedupNum > selectable ? selectable : dedupNum;
 }
 
 console.log(solution([3, 1, 2, 3])); //2
