@@ -3,19 +3,16 @@ export {};
 
 const partList: Record<string, number> = {};
 
-function solution(participant: string[], completion: string[]): string {
+function solution(participant: string[], completion: string[]) {
   for (const x of participant) {
-    if (partList[x]) {
-      partList[x] += 1;
-    } else {
-      partList[x] = 1;
-    }
+    partList[x] = partList[x] ?? 0;
+    partList[x]++;
   }
+
   for (const x of completion) {
-    if (partList[x]) {
-      partList[x] -= 1;
-    }
+    partList[x]--;
   }
+
   return Object.keys(partList)
     .filter((x) => partList[x] === 1)
     .toString();
