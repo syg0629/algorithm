@@ -3,12 +3,12 @@ export {};
 
 function solution(a: number, b: number): string {
   const week: string[] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const lastDayOfMoth: number[] = [
+  const daysOfMonths: number[] = [
     31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
   ];
   let day: number = b + 4;
   for (let i = 0; i < a - 1; i++) {
-    day += lastDayOfMoth[i];
+    day += daysOfMonths[i];
   }
   return week[day % 7];
 }
