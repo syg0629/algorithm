@@ -1,14 +1,12 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/42577
 export {};
 
-function solution(phone_book: string[]) {
-  const phoneNum: Record<string, boolean> = {};
-  phone_book.sort();
+function solution(phone_book: string[]): boolean {
   for (const x of phone_book) {
-    phoneNum[x] = true;
-    for (let i = 1; i < x.length; i++) {
-      const cutPhoneNum: string = x.slice(0, i);
-      if (phoneNum[cutPhoneNum]) return false;
+    for (const y of phone_book) {
+      if (x !== y && x.startsWith(y)) {
+        return false;
+      }
     }
   }
   return true;
