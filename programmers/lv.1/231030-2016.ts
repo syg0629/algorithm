@@ -3,8 +3,14 @@ export {};
 
 function solution(a: number, b: number): string {
   const week: string[] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const date: Date = new Date(2016, a - 1, b);
-  return week[date.getDay()];
+  const lastDayOfMoth: number[] = [
+    31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+  ];
+  let day: number = b + 4;
+  for (let i = 0; i < a - 1; i++) {
+    day += lastDayOfMoth[i];
+  }
+  return week[day % 7];
 }
 
 console.log(solution(5, 24)); //"TUE"
