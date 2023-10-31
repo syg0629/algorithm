@@ -13,7 +13,7 @@ function solution(
   }
 
   const phoneScore: number[] = photo.map((x) =>
-    x.reduce((a: number, b: string) => a + (memoriesScore[b] || 0), 0)
+    x.reduce((a: number, b: string) => a + (memoriesScore[b] ?? 0), 0)
   );
   return phoneScore;
 }
