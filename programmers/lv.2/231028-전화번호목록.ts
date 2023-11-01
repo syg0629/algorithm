@@ -1,12 +1,26 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/42577
 export {};
 
-function solution(phone_book: string[]): boolean {
+function solution(phone_book: string[]) {
+  const phoneNum: Record<string, boolean> = {};
+
+  for (let i = 1; i < phone_book.length; i++) {
+    const temp: string = phone_book[i];
+    let j = 0;
+
+    for (j = i - 1; j >= 0; j--) {
+      if (temp < phone_book[j]) {
+        phone_book[j + 1] = phone_book[j];
+      } else break;
+    }
+    phone_book[j + 1] = temp;
+  }
+
   for (const x of phone_book) {
-    for (const y of phone_book) {
-      if (x !== y && x.startsWith(y)) {
-        return false;
-      }
+    phoneNum[x] = true;
+    for (let i = 1; i < x.length; i++) {
+      const cutPhoneNum: string = x.slice(0, i);
+      if (phoneNum[cutPhoneNum]) return false;
     }
   }
   return true;
