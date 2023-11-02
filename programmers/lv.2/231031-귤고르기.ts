@@ -2,13 +2,13 @@
 export {};
 
 function solution(k: number, tangerine: number[]): number {
-  const typeNum: Record<string, number> = {};
+  const typeCounts: Record<string, number> = {};
 
   for (const x of tangerine) {
-    typeNum[x] = typeNum[x] ?? 0;
-    typeNum[x]++;
+    typeCounts[x] = typeCounts[x] ?? 0;
+    typeCounts[x]++;
   }
-  const sortedNum: number[] = Object.values(typeNum).sort(
+  const sortedNum: number[] = Object.values(typeCounts).sort(
     (a: number, b: number) => b - a
   );
 
