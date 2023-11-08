@@ -3,29 +3,22 @@ export {};
 
 function solution(answers: number[]): number[] {
   const ranking: number[] = [];
-  const student1: number[] = [1, 2, 3, 4, 5];
-  const student2: number[] = [2, 1, 2, 3, 2, 4, 2, 5];
-  const student3: number[] = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-  let student1CorAns: number = 0;
-  let student2CorAns: number = 0;
-  let student3CorAns: number = 0;
+  const studentsAns: number[][] = [
+    [1, 2, 3, 4, 5],
+    [2, 1, 2, 3, 2, 4, 2, 5],
+    [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
+  ];
 
-  answers.forEach((x, i) => {
-    if (x === student1[i % student1.length]) student1CorAns++;
-    if (x === student2[i % student2.length]) student2CorAns++;
-    if (x === student3[i % student3.length]) student3CorAns++;
+  const studentsCorAnsCnt: number[] = studentsAns.map((x: number[]) => {
+    let correctAnsCnt: number = 0;
+    answers.forEach((v: number, i: number) => {
+      if (v === x[i % x.length]) correctAnsCnt++;
+    });
+    return correctAnsCnt;
   });
 
-  const bestScore: number = Math.max(
-    student1CorAns,
-    student2CorAns,
-    student3CorAns
-  );
-  for (const [i, x] of [
-    student1CorAns,
-    student2CorAns,
-    student3CorAns,
-  ].entries()) {
+  const bestScore: number = Math.max(...studentsCorAnsCnt);
+  for (const [i, x] of studentsCorAnsCnt.entries()) {
     if (bestScore === x) {
       ranking.push(i + 1);
     }
