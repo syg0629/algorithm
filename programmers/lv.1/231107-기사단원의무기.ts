@@ -1,16 +1,22 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/136798
 export {};
 
+function getDivisorCnt(i: number): number {
+  let divisorCnt: number = 0;
+  for (let j = 1; j <= Math.sqrt(i); j++) {
+    if (i % j === 0) {
+      if (i / j === j) divisorCnt++;
+      else divisorCnt += 2;
+    }
+  }
+  return divisorCnt;
+}
+
 function solution(number: number, limit: number, power: number): number {
   let sum: number = 0;
   for (let i = 1; i <= number; i++) {
-    let divisorCnt: number = 0;
-    for (let j = 1; j <= Math.sqrt(i); j++) {
-      if (i % j === 0) {
-        if (i / j === j) divisorCnt++;
-        else divisorCnt += 2;
-      }
-    }
+    let divisorCnt: number = getDivisorCnt(i);
+
     if (limit < divisorCnt) {
       divisorCnt = power;
     }
