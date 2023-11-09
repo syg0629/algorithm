@@ -2,12 +2,13 @@
 export {};
 
 function solution(elements: number[]): number {
-  const circularSeq: number[] = [...elements, ...elements];
-  const set = new Set();
+  const eleLen: number = elements.length;
+  const set: Set<number> = new Set();
+
   for (const i of elements.keys()) {
     let sum: number = 0;
     for (const j of elements.keys()) {
-      sum += circularSeq[i + j];
+      sum += elements[(i + j) % eleLen];
       set.add(sum);
     }
   }
