@@ -3,9 +3,10 @@ export {};
 
 function solution(nums: number[]): number {
   let answer: number = 0;
-  for (let i = 0; i < nums.length - 2; i++) {
-    for (let j = i + 1; j < nums.length - 1; j++) {
-      for (let e = j + 1; e < nums.length; e++) {
+  const offset = 1;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + offset; j < nums.length; j++) {
+      for (let e = j + offset; e < nums.length; e++) {
         if (isPrime(nums[i] + nums[j] + nums[e])) answer++;
       }
     }
