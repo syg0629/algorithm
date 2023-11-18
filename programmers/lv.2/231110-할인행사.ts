@@ -15,11 +15,10 @@ function solution(
 
     let count: number = 0;
     for (const j of want.keys()) {
-      if (memberDisList.filter((x) => x === want[j]).length === number[j]) {
-        count++;
-      } else {
+      if (memberDisList.filter((x) => x === want[j]).length !== number[j]) {
         break;
       }
+      count++;
 
       if (count === want.length) {
         answer++;
