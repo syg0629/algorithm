@@ -11,7 +11,7 @@ function solution(nums: number[], N: number): number {
 
   while (true) {
     if (stack.length === N) {
-      const sum: number = stack.reduce((x: number, y: number) => x + y, 0);
+      const sum = stack.reduce((x: number, i: number) => x + nums[i], 0);
       if (isPrime(sum)) answer++;
     }
 
@@ -20,11 +20,11 @@ function solution(nums: number[], N: number): number {
     }
 
     if (idx < nums.length) {
-      stack.push(nums[idx]);
+      stack.push(idx);
     } else {
-      const popedItem = stack.pop();
-      for (const [i, x] of nums.entries()) {
-        if (x === popedItem) idx = i;
+      const popedItem: number | undefined = stack.pop();
+      if (popedItem !== undefined) {
+        idx = popedItem;
       }
     }
     idx++;
