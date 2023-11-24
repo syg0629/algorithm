@@ -11,7 +11,10 @@ function solution(nums: number[], N: number): number {
 
   while (true) {
     if (stack.length === N) {
-      const sum = stack.reduce((x: number, i: number) => x + nums[i], 0);
+      const sum: number = stack.reduce(
+        (x: number, i: number) => x + nums[i],
+        0
+      );
       if (isPrime(sum)) answer++;
     }
 
