@@ -2,31 +2,37 @@
 export {};
 
 function solution(numbers: string): number {
-  const splitedNum: string[] = numbers.split("");
-  const set: Set<number> = new Set();
+  const splittedNum: string[] = numbers.split("");
 
-  findNum(set, splitedNum, "");
+  function findNum(
+    set: Set<number>,
+    splittedNum: string[],
+    fixedNum: string
+  ): number {
+    let count = 0;
 
-  return set.size;
-}
+    if (splittedNum.length >= 1) {
+      for (let i = 0; i < splittedNum.length; i++) {
+        const newNum: string = fixedNum + splittedNum[i];
+        const copySplittedNum: string[] = [...splittedNum];
+        copySplittedNum.splice(i, 1);
 
-function findNum(set: Set<number>, splitedNum: string[], fixedNum: string) {
-  if (splitedNum.length >= 1) {
-    for (let i = 0; i < splitedNum.length; i++) {
-      const newNum: string = fixedNum + splitedNum[i];
-      const copySplitedNum: string[] = [...splitedNum];
-      copySplitedNum.splice(i, 1);
-      if (isPrime(Number(newNum))) {
-        set.add(Number(newNum));
+        const numberNewNum: number = Number(fixedNum + splittedNum[i]);
+        if (isPrime(numberNewNum) && !set.has(numberNewNum)) {
+          set.add(numberNewNum);
+          count++;
+        }
+        count += findNum(set, copySplittedNum, newNum);
       }
-      findNum(set, copySplitedNum, newNum);
     }
+    return count;
   }
+  return findNum(new Set(), splittedNum, "");
 }
 
 function isPrime(n: number): boolean {
   if (n <= 1) return false;
-  for (let i = 2; i < Math.sqrt(n); i++) {
+  for (let i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) return false;
   }
   return true;
@@ -34,3 +40,4 @@ function isPrime(n: number): boolean {
 
 console.log(solution("17")); //3
 console.log(solution("011")); //2
+console.log(solution("143")); //6 [3, 13, 31, 41, 43, 431]

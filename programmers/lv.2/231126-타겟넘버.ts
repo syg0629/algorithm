@@ -2,22 +2,17 @@
 export {};
 
 function solution(numbers: number[], target: number): number {
-  let answer: number = 0;
-
-  function findTargetCnt(idx: number, sum: number) {
+  function findTargetCnt(idx: number, sum: number): number {
     if (idx === numbers.length) {
-      if (target === sum) {
-        answer++;
-      }
-      return;
+      return target === sum ? 1 : 0;
     }
 
-    findTargetCnt(idx + 1, sum + numbers[idx]);
-    findTargetCnt(idx + 1, sum - numbers[idx]);
-  }
-  findTargetCnt(0, 0);
+    const add: number = findTargetCnt(idx + 1, sum + numbers[idx]);
+    const subtract: number = findTargetCnt(idx + 1, sum - numbers[idx]);
 
-  return answer;
+    return add + subtract;
+  }
+  return findTargetCnt(0, 0);
 }
 
 console.log(solution([1, 1, 1, 1, 1], 3)); //5
