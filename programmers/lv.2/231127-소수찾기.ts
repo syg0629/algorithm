@@ -19,7 +19,9 @@ function solution(numbers: string): number {
         if (isPrime(numberNewNum)) {
           primeNewNum.push(numberNewNum);
         }
-        findNum(copySplittedNum, newNum, primeNewNum);
+        primeNewNum = primeNewNum.concat(
+          findNum(copySplittedNum, newNum, primeNewNum)
+        );
       }
     }
     return primeNewNum;
