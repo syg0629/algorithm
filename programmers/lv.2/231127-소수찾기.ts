@@ -3,7 +3,7 @@ export {};
 
 function solution(numbers: string): number {
   const splittedNum: string[] = numbers.split("");
-  const set: Set<number> = new Set();
+  const primeNewNum: number[] = [];
 
   function findNum(splittedNum: string[], fixedNum: string): number[] {
     if (splittedNum.length >= 1) {
@@ -14,14 +14,15 @@ function solution(numbers: string): number {
 
         const numberNewNum: number = Number(fixedNum + splittedNum[i]);
         if (isPrime(numberNewNum)) {
-          set.add(numberNewNum);
+          primeNewNum.push(numberNewNum);
         }
         findNum(copySplittedNum, newNum);
       }
     }
-    return Array.from(set);
+    return primeNewNum;
   }
   findNum(splittedNum, "");
+  const set: Set<number> = new Set(primeNewNum);
   return set.size;
 }
 
