@@ -3,14 +3,9 @@ export {};
 
 function solution(numbers: string): number {
   const splittedNum: string[] = numbers.split("");
+  const set: Set<number> = new Set();
 
-  function findNum(
-    set: Set<number>,
-    splittedNum: string[],
-    fixedNum: string
-  ): number {
-    let count = 0;
-
+  function findNum(splittedNum: string[], fixedNum: string): number[] {
     if (splittedNum.length >= 1) {
       for (let i = 0; i < splittedNum.length; i++) {
         const newNum: string = fixedNum + splittedNum[i];
@@ -18,16 +13,16 @@ function solution(numbers: string): number {
         copySplittedNum.splice(i, 1);
 
         const numberNewNum: number = Number(fixedNum + splittedNum[i]);
-        if (isPrime(numberNewNum) && !set.has(numberNewNum)) {
+        if (isPrime(numberNewNum)) {
           set.add(numberNewNum);
-          count++;
         }
-        count += findNum(set, copySplittedNum, newNum);
+        findNum(copySplittedNum, newNum);
       }
     }
-    return count;
+    return Array.from(set);
   }
-  return findNum(new Set(), splittedNum, "");
+  findNum(splittedNum, "");
+  return set.size;
 }
 
 function isPrime(n: number): boolean {
