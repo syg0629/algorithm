@@ -3,9 +3,12 @@ export {};
 
 function solution(numbers: string): number {
   const splittedNum: string[] = numbers.split("");
-  const primeNewNum: number[] = [];
 
-  function findNum(splittedNum: string[], fixedNum: string): number[] {
+  function findNum(
+    splittedNum: string[],
+    fixedNum: string,
+    primeNewNum: number[]
+  ): number[] {
     if (splittedNum.length >= 1) {
       for (let i = 0; i < splittedNum.length; i++) {
         const newNum: string = fixedNum + splittedNum[i];
@@ -16,13 +19,12 @@ function solution(numbers: string): number {
         if (isPrime(numberNewNum)) {
           primeNewNum.push(numberNewNum);
         }
-        findNum(copySplittedNum, newNum);
+        findNum(copySplittedNum, newNum, primeNewNum);
       }
     }
     return primeNewNum;
   }
-  findNum(splittedNum, "");
-  const set: Set<number> = new Set(primeNewNum);
+  const set: Set<number> = new Set(findNum(splittedNum, "", []));
   return set.size;
 }
 
