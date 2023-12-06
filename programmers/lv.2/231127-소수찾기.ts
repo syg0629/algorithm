@@ -10,19 +10,17 @@ function solution(numbers: string): number {
     primeNewNum: number[]
   ): number[] {
     if (splittedNum.length >= 1) {
-      for (let i = 0; i < splittedNum.length; i++) {
-        const newNum: string = fixedNum + splittedNum[i];
+      return splittedNum.flatMap((num, i) => {
+        const newNum: string = fixedNum + num;
         const copySplittedNum: string[] = [...splittedNum];
         copySplittedNum.splice(i, 1);
 
-        const numberNewNum: number = Number(fixedNum + splittedNum[i]);
+        const numberNewNum: number = Number(fixedNum + num);
         if (isPrime(numberNewNum)) {
           primeNewNum.push(numberNewNum);
         }
-        primeNewNum = primeNewNum.concat(
-          findNum(copySplittedNum, newNum, primeNewNum)
-        );
-      }
+        return findNum(copySplittedNum, newNum, primeNewNum);
+      });
     }
     return primeNewNum;
   }
@@ -40,4 +38,4 @@ function isPrime(n: number): boolean {
 
 console.log(solution("17")); //3
 console.log(solution("011")); //2
-console.log(solution("143")); //6 [3, 13, 31, 41, 43, 431]
+console.log(solution("143")); //6
