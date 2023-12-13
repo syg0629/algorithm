@@ -7,14 +7,15 @@ export {};
 function solution(s: string): string {
   let answer: string = "";
   let count: number = 1;
-  s = s + " ";
-  for (let i = 0; i < s.length - 1; i++) {
+  for (let i = 0; i < s.length; i++) {
     if (s[i] === s[i + 1]) {
       count++;
     } else {
       answer += s[i];
-      if (count > 1) answer += String(count);
-      count = 1;
+      if (count > 1) {
+        answer += count;
+        count = 1;
+      }
     }
   }
   return answer;
