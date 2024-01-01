@@ -7,7 +7,7 @@ function solution(s: string): number {
   let answer: number = 0;
   const operator: number[] = [];
   for (const x of s) {
-    if (!isNaN(x)) operator.push(Number(x));
+    if (!isNaN(Number(x))) operator.push(Number(x));
     else {
       let rt: number | undefined = operator.pop();
       let lt: number | undefined = operator.pop();
