@@ -2,29 +2,27 @@
 export {};
 
 function solution(numbers: string): number {
-  const splittedNum: string[] = numbers.split("");
+  const numberChars: string[] = numbers.split("");
 
   function findNum(
-    splittedNum: string[],
+    numberChars: string[],
     fixedNum: string,
-    primeNewNum: number[]
-  ): number[] {
-    if (splittedNum.length >= 1) {
-      return splittedNum.flatMap((num, i) => {
-        const newNum: string = fixedNum + num;
-        const copySplittedNum: string[] = [...splittedNum];
-        copySplittedNum.splice(i, 1);
+    set: Set<number>
+  ): void {
+    numberChars.flatMap((num, i) => {
+      const newNum: string = fixedNum + num;
+      const copyNumberChars: string[] = [...numberChars];
+      copyNumberChars.splice(i, 1);
 
-        const numberNewNum: number = Number(fixedNum + num);
-        if (isPrime(numberNewNum)) {
-          primeNewNum.push(numberNewNum);
-        }
-        return findNum(copySplittedNum, newNum, primeNewNum);
-      });
-    }
-    return primeNewNum;
+      const numberNewNum: number = Number(fixedNum + num);
+      if (isPrime(numberNewNum)) {
+        set.add(numberNewNum);
+      }
+      return findNum(copyNumberChars, newNum, set);
+    });
   }
-  const set: Set<number> = new Set(findNum(splittedNum, "", []));
+  const set: Set<number> = new Set();
+  findNum(numberChars, "", set);
   return set.size;
 }
 
