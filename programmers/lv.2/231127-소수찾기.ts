@@ -21,9 +21,9 @@ function solution(numbers: string): number {
       return findNum(copyNumberChars, newNum, set);
     });
   }
-  const set: Set<number> = new Set();
-  findNum(numberChars, "", set);
-  return set.size;
+  const primeSet: Set<number> = new Set();
+  findNum(numberChars, "", primeSet);
+  return primeSet.size;
 }
 
 function isPrime(n: number): boolean {
