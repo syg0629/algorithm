@@ -4,25 +4,20 @@ export {};
 function solution(numbers: string): number {
   const numberChars: string[] = numbers.split("");
 
-  function findNum(
-    numberChars: string[],
-    fixedNum: string,
-    set: Set<number>
-  ): void {
-    numberChars.flatMap((num, i) => {
+  function findNum(numberChars: string[], fixedNum: string): number[] {
+    return numberChars.flatMap((num, i) => {
       const newNum: string = fixedNum + num;
       const copyNumberChars: string[] = [...numberChars];
       copyNumberChars.splice(i, 1);
 
-      const numberNewNum: number = Number(fixedNum + num);
+      const numberNewNum: number = Number(newNum);
       if (isPrime(numberNewNum)) {
-        set.add(numberNewNum);
+        return [numberNewNum, ...findNum(copyNumberChars, newNum)];
       }
-      return findNum(copyNumberChars, newNum, set);
+      return findNum(copyNumberChars, newNum);
     });
   }
-  const primeSet: Set<number> = new Set();
-  findNum(numberChars, "", primeSet);
+  const primeSet: Set<number> = new Set(findNum(numberChars, ""));
   return primeSet.size;
 }
 
