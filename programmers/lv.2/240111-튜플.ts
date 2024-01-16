@@ -2,15 +2,15 @@
 export {};
 
 function solution(s: string): number[] {
-  const chgBraceToArr: number[] = s
+  const extractedNums: number[] = s
     .substring(2, s.length - 2)
     .split("},{")
     .map((x) => x.split(",").map((x) => Number(x)))
     .sort((x, y) => x.length - y.length)
     .flat();
-  const removeDup: Set<number> = new Set(chgBraceToArr);
-  const chgSetToArr: number[] = Array.from(removeDup);
-  return chgSetToArr;
+  const removeDuplicates: Set<number> = new Set(extractedNums);
+  const uniqueNums: number[] = Array.from(removeDuplicates);
+  return uniqueNums;
 }
 
 console.log(solution("{{2},{2,1},{2,1,3},{2,1,3,4}}")); //[2, 1, 3, 4]
