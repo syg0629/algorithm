@@ -11,10 +11,8 @@ function solution(clothes: string[][]): number {
     if (!conyClothes.has(type)) {
       conyClothes.set(type, 1);
     } else {
-      const clothesTypeCount: number | undefined = conyClothes.get(type);
-      if (clothesTypeCount) {
-        conyClothes.set(type, clothesTypeCount + 1);
-      }
+      const clothesTypeCount: number | undefined = conyClothes.get(type) || 0;
+      conyClothes.set(type, clothesTypeCount + 1);
     }
   }
 
