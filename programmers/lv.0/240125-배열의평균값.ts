@@ -1,8 +1,9 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120817
 export {};
+import _ from "lodash";
 
 function solution(numbers: number[]): number {
-  return numbers.reduce((x: number, y: number) => x + y, 0) / numbers.length;
+  return _.sum(numbers) / numbers.length;
 }
 
 console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); //5.5
