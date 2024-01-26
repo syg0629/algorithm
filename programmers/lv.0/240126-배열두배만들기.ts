@@ -2,7 +2,7 @@
 export {};
 
 function solution(numbers: number[]): number[] {
-  let doubling = numbers.map((x: number) => x * 2);
+  const doubling = numbers.map((x: number) => x * 2);
   return doubling;
 }
 
