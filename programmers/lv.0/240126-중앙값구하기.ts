@@ -1,5 +1,6 @@
-//
+//https://github.com/syg0629/algorithm/pull/21
 export {};
+
 function solution(array: number[]): number | undefined {
   return array
     .sort((a: number, b: number) => a - b)
