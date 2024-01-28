@@ -3,13 +3,7 @@ export {};
 
 function solution(dot: number[]): number {
   const [num1, num2] = dot;
-  if (num1 > 0 && num2 > 0) {
-    return 1;
-  } else if (num1 < 0 && num2 > 0) {
-    return 2;
-  } else if (num1 < 0 && num2 < 0) {
-    return 3;
-  } else return 4;
+  return num1 > 0 ? (num2 > 0 ? 1 : 4) : num2 < 0 ? 3 : 2;
 }
 
 console.log(solution([2, 4])); //1
