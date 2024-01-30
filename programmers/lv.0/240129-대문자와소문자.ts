@@ -2,13 +2,10 @@
 export {};
 
 function solution(my_string: string): string {
-  let letterCaseConversion: string = "";
-  for (const x of my_string) {
-    x === x.toUpperCase()
-      ? (letterCaseConversion += x.toLowerCase())
-      : (letterCaseConversion += x.toUpperCase());
-  }
-  return letterCaseConversion;
+  const answer = [...my_string]
+    .map((x) => (x === x.toUpperCase() ? x.toLowerCase() : x.toUpperCase()))
+    .join("");
+  return answer;
 }
 
 console.log(solution("cccCCC")); //"CCCccc"

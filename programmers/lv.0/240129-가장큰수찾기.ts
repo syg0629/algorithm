@@ -2,15 +2,7 @@
 export {};
 
 function solution(array: number[]): number[] {
-  let max: number = 0;
-  let idx: number = 0;
-  for (const [i, x] of array.entries()) {
-    if (max < x) {
-      max = x;
-      idx = i;
-    }
-  }
-  return [max, idx];
+  return [Math.max(...array), array.indexOf(Math.max(...array))];
 }
 
 console.log(solution([1, 8, 3])); //[8, 1]
