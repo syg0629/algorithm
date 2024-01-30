@@ -4,7 +4,7 @@ import _ from "lodash";
 
 function solution(array: number[], height: number): {} {
   const tallerCnts = _.countBy(array, (x) => x > height);
-  return tallerCnts.true || 0;
+  return tallerCnts.true ?? 0;
 }
 
 console.log(solution([149, 180, 192, 170], 167)); //3
