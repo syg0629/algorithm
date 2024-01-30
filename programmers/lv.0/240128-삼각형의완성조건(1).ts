@@ -3,10 +3,7 @@ export {};
 
 function solution(sides: number[]): number {
   sides.sort((a, b) => b - a);
-  if (sides[0] < sides[1] + sides[2]) {
-    return 1;
-  }
-  return 2;
+  return sides[0] < sides[1] + sides[2] ? 1 : 2;
 }
 
 console.log(solution([1, 2, 3])); //2

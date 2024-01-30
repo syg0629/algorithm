@@ -2,13 +2,7 @@
 export {};
 
 function solution(array: number[], n: number): number {
-  let cnt: number = 0;
-  for (const x of array) {
-    if (x === n) {
-      cnt++;
-    }
-  }
-  return cnt;
+  return array.filter((x) => x === n).length;
 }
 
 console.log(solution([1, 1, 2, 3, 4, 5], 1)); //2
