@@ -2,8 +2,8 @@
 export {};
 
 function solution(dot: number[]): number {
-  const [num1, num2] = dot;
-  return num1 > 0 ? (num2 > 0 ? 1 : 4) : num2 < 0 ? 3 : 2;
+  const [x, y] = dot;
+  return x > 0 ? (y > 0 ? 1 : 4) : y < 0 ? 3 : 2;
 }
 
 console.log(solution([2, 4])); //1
