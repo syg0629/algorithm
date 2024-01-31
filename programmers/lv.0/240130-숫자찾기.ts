@@ -2,12 +2,8 @@
 export {};
 
 function solution(num: number, k: number): number {
-  for (const [i, v] of [...num.toString()].map(Number).entries()) {
-    if (v === k) {
-      return i + 1;
-    }
-  }
-  return -1;
+  const answer: number = [...num.toString()].findIndex((x) => Number(x) === k);
+  return answer >= 0 ? answer + 1 : answer;
 }
 
 console.log(solution(29183, 1)); //3
