@@ -1,20 +1,9 @@
-//
+//https://school.programmers.co.kr/learn/courses/30/lessons/120834
 export {};
 
 function solution(age: number) {
-  const ageLetters: string[] = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-  ];
-  return [...age.toString()].map((x) => ageLetters[Number(x)]).join("");
+  const ageLetters: string = "abcdefghij";
+  return [...age.toString()].map((x) => [...ageLetters][Number(x)]).join("");
 }
 
 console.log(solution(23)); //"cd"
