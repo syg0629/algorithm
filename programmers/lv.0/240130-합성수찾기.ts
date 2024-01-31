@@ -1,4 +1,4 @@
-//
+//https://school.programmers.co.kr/learn/courses/30/lessons/120846
 export {};
 
 function solution(n: number): number {
