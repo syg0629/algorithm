@@ -2,15 +2,15 @@
 export {};
 
 function solution(s: string): string {
-  const letterCnt: Record<string, number> = {};
+  const map: Map<string, number> = new Map();
   for (const x of [...s]) {
-    letterCnt[x] = letterCnt[x] ?? 0;
-    letterCnt[x]++;
+    map.set(x, (map.get(x) ?? 0) + 1);
   }
-  return Object.keys(letterCnt)
-    .filter((x) => letterCnt[x] === 1)
-    .sort()
-    .join("");
+
+  const uniqueLetters: string[] = [...map.keys()]
+    .filter((x) => map.get(x) === 1)
+    .sort();
+  return uniqueLetters.join("");
 }
 
 console.log(solution("abcabcadc")); //"d"
