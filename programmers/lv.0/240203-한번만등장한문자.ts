@@ -3,14 +3,14 @@ export {};
 
 function solution(s: string): string {
   const map: Map<string, number> = new Map();
-  for (const x of [...s]) {
+  for (const x of s) {
     map.set(x, (map.get(x) ?? 0) + 1);
   }
 
-  const uniqueLetters: string[] = [...map.keys()]
+  return [...map.keys()]
     .filter((x) => map.get(x) === 1)
-    .sort();
-  return uniqueLetters.join("");
+    .sort()
+    .join("");
 }
 
 console.log(solution("abcabcadc")); //"d"
