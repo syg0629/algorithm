@@ -2,13 +2,15 @@
 export {};
 
 function solution(s: string): number {
-  const numbers: number[] = s.split(" ").map(Number);
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] !== 0 && !numbers[i]) {
-      numbers[i] = -numbers[i - 1];
+  const stack: string[] = [];
+  for (const x of s.split(" ")) {
+    if (x === "Z") {
+      stack.pop();
+    } else {
+      stack.push(x);
     }
   }
-  return numbers.reduce((x, y) => x + y, 0);
+  return stack.map(Number).reduce((x, y) => x + y, 0);
 }
 
 console.log(solution("1 2 Z 3")); //4
