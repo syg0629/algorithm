@@ -15,12 +15,12 @@ function solution(array: number[]) {
     if (appearance === maxCnt) {
       mode = num;
       cnt++;
+      if (cnt >= 2) {
+        return -1;
+      }
     }
   }
 
-  if (cnt >= 2) {
-    return -1;
-  }
   return mode;
 }
 
