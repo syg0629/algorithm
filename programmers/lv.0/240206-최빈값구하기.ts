@@ -15,7 +15,7 @@ function solution(array: number[]) {
     if (appearance === maxCnt) {
       mode = num;
       cnt++;
-      if (cnt >= 2) {
+      if (cnt > 1) {
         return -1;
       }
     }
