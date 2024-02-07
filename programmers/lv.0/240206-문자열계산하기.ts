@@ -5,8 +5,8 @@ function solution(my_string: string): number {
   const tokens: string[] = my_string.split(" ");
   let answer: number = Number(tokens[0]);
   for (let i = 1; i < tokens.length; i += 2) {
-    answer +=
-      tokens[i] === "+" ? Number(tokens[i + 1]) : -Number(tokens[i + 1]);
+    const nextNum = Number(tokens[i + 1]);
+    answer += tokens[i] === "+" ? nextNum : -nextNum;
   }
   return answer;
 }
