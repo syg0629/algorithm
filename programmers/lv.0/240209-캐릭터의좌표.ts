@@ -6,6 +6,7 @@ function solution(keyinput: string[], board: number[]) {
   let y: number = 0;
 
   const range: number[] = [Math.floor(board[0] / 2), Math.floor(board[1] / 2)];
+  let [xRange, yRange] = range;
 
   for (const direction of keyinput) {
     switch (direction) {
@@ -22,11 +23,11 @@ function solution(keyinput: string[], board: number[]) {
         x++;
         break;
     }
-    if (range[0] < Math.abs(x)) {
-      x = x > 0 ? range[0] : -range[0];
+    if (xRange < Math.abs(x)) {
+      x = x > 0 ? xRange : -xRange;
     }
-    if (range[1] < Math.abs(y)) {
-      y = y > 0 ? range[1] : -range[1];
+    if (yRange < Math.abs(y)) {
+      y = y > 0 ? yRange : -yRange;
     }
   }
   return [x, y];
