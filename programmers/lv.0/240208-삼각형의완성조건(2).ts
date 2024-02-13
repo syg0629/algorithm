@@ -2,13 +2,7 @@
 export {};
 
 function solution(sides: number[]): number {
-  const max: number = Math.max(...sides);
-  const min: number = Math.min(...sides);
-  let cnt: number = 0;
-  for (let i = max - min + 1; i < max + min; i++) {
-    cnt++;
-  }
-  return cnt;
+  return Math.min(...sides) * 2 - 1;
 }
 
 console.log(solution([1, 2])); //1
