@@ -3,12 +3,13 @@ export {};
 
 function solution(n: number): number {
   let factorial: number = 1;
-  let answer: number = 0;
-  let i: number = 1;
+  let answer: number = 1;
   while (factorial <= n) {
-    i++;
-    answer++;
-    factorial *= i;
+    factorial *= ++answer;
+    if (factorial > n) {
+      answer--;
+      break;
+    }
   }
   return answer;
 }
