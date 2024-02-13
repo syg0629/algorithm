@@ -1,14 +1,9 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120890
+import _ from "lodash";
 export {};
 
 function solution(array: number[], n: number): number {
-  const diff: number[] = array
-    .sort((a, b) => a - b)
-    .map((x) => Math.abs(x - n));
-  const minDiff: number = Math.min(...diff);
-  const closestNum: number | undefined = array.find(
-    (x) => Math.abs(x - n) === minDiff
-  );
+  const closestNum: number | undefined = _.minBy(array, (x) => Math.abs(x - n));
   return closestNum ?? 0;
 }
 
