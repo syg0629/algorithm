@@ -8,12 +8,7 @@ function solution(clothes: string[][]): number {
   //같은 타입 옷 개수 세기
   //같은 이름을 가진 의상 존재하지 X
   for (const [, type] of clothes) {
-    if (!conyClothes.has(type)) {
-      conyClothes.set(type, 1);
-    } else {
-      const clothesTypeCount: number | undefined = conyClothes.get(type) || 0;
-      conyClothes.set(type, clothesTypeCount + 1);
-    }
+    conyClothes.set(type, (conyClothes.get(type) ?? 0) + 1);
   }
 
   //옷 타입별로 선택하는 경우의 수(안 입었을 경우 +1)
