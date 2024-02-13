@@ -2,7 +2,7 @@
 export {};
 
 function solution(num_list: number[], n: number): number[][] {
-  const answer: number[][] = [[]];
+  const answer: number[][] = [];
   for (let i = 0; i < num_list.length; i += n) {
     answer.push(num_list.slice(i, i + n));
   }
