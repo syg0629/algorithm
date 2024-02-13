@@ -30,7 +30,10 @@ function solution(letter: string): string {
     "-.--": "y",
     "--..": "z",
   };
-  return letter.split(" ").reduce((x, y) => x + morse[y], "");
+  return letter
+    .split(" ")
+    .map((x) => morse[x])
+    .join("");
 }
 
 console.log(solution(".... . .-.. .-.. ---")); //"hello"
