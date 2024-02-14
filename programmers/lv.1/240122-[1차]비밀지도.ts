@@ -2,10 +2,11 @@
 export {};
 
 function solution(n: number, arr1: number[], arr2: number[]): string[] {
-  const combineMap: string[] = arr1.map((x, i) =>
-    (x | arr2[i]).toString(2).padStart(n, "0")
+  const decimalToBinaries: string[] = arr1.map((x, i) =>
+    (x | arr2[i]).toString(2)
   );
-  const decoding: string[] = combineMap.map((x) =>
+  const fillZeros: string[] = decimalToBinaries.map((x) => x.padStart(n, "0"));
+  const decoding: string[] = fillZeros.map((x) =>
     x.replace(/1/g, "#").replace(/0/g, " ")
   );
   return decoding;
