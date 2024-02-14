@@ -1,17 +1,19 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/12921
 export {};
-import _ from "lodash";
 
 function solution(n: number): number {
-  const isPrime: boolean[] = _.times(n, _.constant(true));
-  isPrime[0] = false;
-  for (let i = 2; i * i <= n; i++) {
-    for (let j = i * i; j <= n; j += i) {
-      isPrime[j - 1] = false;
+  const set: Set<number> = new Set();
+  for (let i = 3; i <= n; i += 2) {
+    set.add(i);
+  }
+  set.add(2);
+
+  for (let j = 3; j < Math.sqrt(n); j += 2) {
+    for (let k = j * j; k <= n; k += j) {
+      set.delete(k);
     }
   }
-
-  return isPrime.filter((x) => x).length;
+  return set.size;
 }
 
 console.log(solution(10)); //4
