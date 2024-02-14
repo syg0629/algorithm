@@ -9,14 +9,10 @@ function solution(k: number, score: number[]): number[] {
     orderedScores.push(x);
     orderedScores.sort((a: number, b: number) => b - a);
 
-    if (orderedScores.length >= k) {
-      answer.push(orderedScores[k - 1]);
-    } else {
-      const lastNum: number | undefined = orderedScores.at(-1);
-      if (lastNum) {
-        answer.push(lastNum);
-      }
+    if (orderedScores.length > k) {
+      orderedScores.pop();
     }
+    answer.push(orderedScores.at(-1)!);
   }
 
   return answer;
