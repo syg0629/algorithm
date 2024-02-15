@@ -2,18 +2,14 @@
 export {};
 
 function solution(numlist: number[], n: number): number[] {
-  const nearestNums: number[][] = [];
-  for (const x of numlist) {
-    nearestNums.push([x, Math.abs(n - x)]);
-  }
-  nearestNums.sort((a: number[], b: number[]) => {
-    if (a[1] === b[1]) {
-      return b[0] - a[0];
+  return numlist.sort((a: number, b: number) => {
+    const distanceA = Math.abs(n - a);
+    const distanceB = Math.abs(n - b);
+    if (distanceA === distanceB) {
+      return b - a;
     }
-    return a[1] - b[1];
+    return distanceA - distanceB;
   });
-  const answer = nearestNums.map((x: number[]) => x[0]);
-  return answer;
 }
 
 console.log(solution([1, 2, 3, 4, 5, 6], 4)); //[4, 5, 3, 6, 2, 1]
