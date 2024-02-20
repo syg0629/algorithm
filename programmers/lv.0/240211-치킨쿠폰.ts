@@ -10,11 +10,8 @@ function solution(chicken: number): number {
     answer += freeChicken;
     //남은 쿠폰 + 서비스 치킨의 쿠폰
     chicken = (chicken % 10) + freeChicken;
-    if (freeChicken === 0) {
-      break;
-    }
+    if (freeChicken === 0) return answer;
   }
-  return answer;
 }
 
 console.log(solution(100)); //11
