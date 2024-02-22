@@ -1,14 +1,14 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120883
 export {};
 
-function solution(id_pw: string[], db: string[][]): string {
+function solution(id_pw: [string, string], db: [string, string][]): string {
   const map: Map<string, string> = new Map();
-  db.forEach((x: string[]) => {
+  db.forEach((x: [string, string]) => {
     const [key, value] = x;
     map.set(key, value);
   });
 
-  return map.has(id_pw[0])
+  return map.get(id_pw[0])
     ? map.get(id_pw[0]) === id_pw[1]
       ? "login"
       : "wrong pw"
