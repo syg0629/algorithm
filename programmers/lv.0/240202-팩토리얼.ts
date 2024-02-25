@@ -2,16 +2,15 @@
 export {};
 
 function solution(n: number): number {
-  let factorial: number = 1;
-  let answer: number = 1;
-  while (factorial <= n) {
-    factorial *= ++answer;
-    if (factorial > n) {
-      answer--;
-      break;
-    }
+  return factorial(n, 1, 1);
+}
+
+function factorial(n: number, answer: number, curFactorial: number): number {
+  curFactorial *= answer;
+  if (curFactorial > n) {
+    return answer - 1;
   }
-  return answer;
+  return factorial(n, answer + 1, curFactorial);
 }
 
 console.log(solution(3628800)); //10
