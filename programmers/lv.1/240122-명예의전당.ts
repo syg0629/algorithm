@@ -2,7 +2,7 @@
 export {};
 
 function solution(k: number, score: number[]): number[] {
-  const orderedScores: number[] = [];
+  let orderedScores: number[] = [];
   const answer: number[] = [];
 
   for (const x of score) {
@@ -10,7 +10,7 @@ function solution(k: number, score: number[]): number[] {
     orderedScores.sort((a: number, b: number) => b - a);
 
     if (orderedScores.length > k) {
-      orderedScores.pop();
+      orderedScores = orderedScores.slice(0, k);
     }
     answer.push(orderedScores.at(-1)!);
   }
