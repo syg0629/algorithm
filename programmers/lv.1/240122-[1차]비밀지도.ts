@@ -1,14 +1,22 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/17681
+import _ from "lodash";
 export {};
 
-function solution(n: number, arr1: number[], arr2: number[]): string[] {
-  const decimalToBinaries: string[] = arr1.map((x, i) =>
-    (x | arr2[i]).toString(2)
+function solution(n: number, arr1: number[], arr2: number[]) {
+  const decimalToBinaries: string[] = _.zip(arr1, arr2).map((x) => {
+    const firstMap: number = x[0] ?? 0;
+    const secondMap: number = x[1] ?? 0;
+    return (firstMap | secondMap).toString(2);
+  });
+
+  const zeroFilledForBinary: string[] = decimalToBinaries.map((x) =>
+    x.padStart(n, "0")
   );
-  const fillZeros: string[] = decimalToBinaries.map((x) => x.padStart(n, "0"));
-  const decoding: string[] = fillZeros.map((x) =>
+
+  const decoding: string[] = zeroFilledForBinary.map((x) =>
     x.replace(/1/g, "#").replace(/0/g, " ")
   );
+
   return decoding;
 }
 
