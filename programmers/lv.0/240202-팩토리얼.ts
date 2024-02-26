@@ -1,15 +1,25 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/120848
 export {};
 
-function solution(n: number): number {
-  return factorial(n, 1);
+function* factorial(): Generator<number> {
+  let curFactorial: number = 1;
+  let num: number = 1;
+  while (true) {
+    yield curFactorial;
+    num++;
+    curFactorial *= num;
+  }
 }
 
-function factorial(n: number, answer: number): number {
-  if (answer > n) {
-    return answer - 1;
+function solution(n: number): number {
+  let answer: number = 0;
+  for (const x of factorial()) {
+    if (x > n) {
+      break;
+    }
+    ++answer;
   }
-  return factorial(n / answer, answer + 1);
+  return answer;
 }
 
 console.log(solution(3628800)); //10
