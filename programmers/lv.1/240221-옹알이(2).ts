@@ -4,12 +4,8 @@ export {};
 function solution(babbling: string[]): number {
   let answer: number = 0;
   for (const x of babbling) {
-    //연속된 발음이 있는지
-    if (/(aya|ye|woo|ma)\1+/g.test(x)) {
-      continue;
-    }
-    //발음할 수 있는 단어만 있는지
-    if (/^(aya|ye|woo|ma)+$/g.test(x)) {
+    //연속된 발음이 없는지 && 발음할 수 있는 단어만 있는지
+    if (!/(aya|ye|woo|ma)\1+/g.test(x) && /^(aya|ye|woo|ma)+$/g.test(x)) {
       answer++;
     }
   }
