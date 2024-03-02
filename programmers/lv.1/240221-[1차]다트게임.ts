@@ -1,7 +1,7 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/17682
 export {};
 
-function solution(dartResult: string) {
+function solution(dartResult: string): number {
   let scores: number[] = [];
   let num: string = "";
 
@@ -13,27 +13,26 @@ function solution(dartResult: string) {
         scores.push(Number(num));
         num = "";
       }
-    }
 
-    if (x === "S") {
-      scores.push(Math.pow(scores.pop()!, 1));
-    }
-    if (x === "D") {
-      scores.push(Math.pow(scores.pop()!, 2));
-    }
-    if (x === "T") {
-      scores.push(Math.pow(scores.pop()!, 3));
-    }
-    if (x === "*") {
-      const prev = scores.pop()!;
-      scores.push((scores.pop()! || 0) * 2);
-      scores.push(prev * 2);
-    }
-    if (x === "#") {
-      scores.push(scores.pop()! * -1);
+      if (x === "*") {
+        const prev = scores.pop()!;
+        scores.push((scores.pop()! || 0) * 2);
+        scores.push(prev * 2);
+      } else if (x === "#") {
+        scores.push(scores.pop()! * -1);
+      } else {
+        scores.push(calculateScore(scores.pop()!, x)!);
+      }
     }
   }
-  return scores.reduce((x, y) => x + y, 0);
+  return scores.reduce((x: number, y: number) => x + y, 0);
+}
+
+function calculateScore(score: number, bonus: string): number {
+  if (bonus === "S") return Math.pow(score, 1);
+  if (bonus === "D") return Math.pow(score, 2);
+  if (bonus === "T") return Math.pow(score, 3);
+  return 0;
 }
 
 console.log(solution("1S2D*3T")); //37
