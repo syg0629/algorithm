@@ -5,8 +5,9 @@ function solution(quiz: string[]): string[] {
   const answer: string[] = quiz.map((a: string) => {
     const [x, operator, y, _, result] = a.split(" ");
 
-    const operation: (x: number, y: number) => number = operate(operator);
-    return operation(Number(x), Number(y)) === Number(result) ? "O" : "X";
+    return operate(operator)(Number(x), Number(y)) === Number(result)
+      ? "O"
+      : "X";
   });
   return answer;
 }
