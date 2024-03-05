@@ -16,7 +16,7 @@ function solution(dartResult: string): number {
 
       const poppedScore = scores.pop()!;
       if (x === "*") {
-        const prevScore = scores.pop()! || 0;
+        const prevScore = scores.pop() || 0;
         scores.push(prevScore * 2, poppedScore * 2);
       } else if (x === "#") {
         scores.push(poppedScore * -1);
