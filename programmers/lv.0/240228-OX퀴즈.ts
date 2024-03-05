@@ -4,18 +4,17 @@ export {};
 function solution(quiz: string[]): string[] {
   const answer: string[] = quiz.map((a: string) => {
     const [x, operator, y, _, result] = a.split(" ");
-    return calculate(Number(x), Number(y), operator) === Number(result)
-      ? "O"
-      : "X";
+
+    const operation: (x: number, y: number) => number = operate(operator);
+    return operation(Number(x), Number(y)) === Number(result) ? "O" : "X";
   });
   return answer;
 }
-
-function calculate(x: number, y: number, operator: string): number {
+function operate(operator: string): (x: number, y: number) => number {
   if (operator === "+") {
-    return x + y;
+    return (x: number, y: number) => x + y;
   } else {
-    return x - y;
+    return (x: number, y: number) => x - y;
   }
 }
 
