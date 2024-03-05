@@ -7,8 +7,11 @@ function solution(polynomial: string): string {
   const terms: string[] = polynomial.split(" + ");
   for (const x of terms) {
     if (x.includes("x")) {
-      let xTermsNum: number = Number(x.split("x")[0]) || 1;
-      xTermsSum += xTermsNum;
+      let xTermsNum = x.split("x")[0];
+      if (xTermsNum === "") {
+        xTermsSum++;
+      }
+      xTermsSum += Number(xTermsNum);
     } else {
       constantTermsSum += Number(x);
     }
