@@ -2,11 +2,9 @@
 import _ from "lodash";
 export {};
 
-function solution(n: number, arr1: number[], arr2: number[]) {
-  const decimalToBinaries: string[] = _.zip(arr1, arr2).map((x) => {
-    const firstMap: number = x[0] ?? 0;
-    const secondMap: number = x[1] ?? 0;
-    return (firstMap | secondMap).toString(2);
+function solution(n: number, map1: number[], map2: number[]) {
+  const decimalToBinaries: string[] = _.zip(map1, map2).map(([row1, row2]) => {
+    return (row1! | row2!).toString(2);
   });
 
   const zeroFilledForBinary: string[] = decimalToBinaries.map((x) =>
