@@ -8,10 +8,8 @@ function solution(k: number, score: number[]): number[] {
   for (const x of score) {
     orderedScores.push(x);
     orderedScores.sort((a: number, b: number) => b - a);
+    orderedScores = orderedScores.slice(0, k);
 
-    if (orderedScores.length > k) {
-      orderedScores = orderedScores.slice(0, k);
-    }
     answer.push(orderedScores.at(-1)!);
   }
 
