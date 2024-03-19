@@ -7,15 +7,11 @@ function solution(n: number, map1: number[], map2: number[]) {
     return (row1! | row2!).toString(2);
   });
 
-  const zeroFilledForBinary: string[] = decimalToBinaries.map((x) =>
+  const paddedBinary: string[] = decimalToBinaries.map((x) =>
     x.padStart(n, "0")
   );
 
-  const decoding: string[] = zeroFilledForBinary.map((x) =>
-    x.replace(/1/g, "#").replace(/0/g, " ")
-  );
-
-  return decoding;
+  return paddedBinary.map((x) => x.replace(/1/g, "#").replace(/0/g, " "));
 }
 
 console.log(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]));
