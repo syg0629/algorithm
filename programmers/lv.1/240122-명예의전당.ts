@@ -2,13 +2,14 @@
 export {};
 
 function solution(k: number, score: number[]): number[] {
-  let orderedScores: number[] = [];
+  const orderedScores: number[] = [];
   const answer: number[] = [];
 
   for (const x of score) {
     orderedScores.push(x);
+
     orderedScores.sort((a: number, b: number) => b - a);
-    orderedScores = orderedScores.slice(0, k);
+    orderedScores.splice(k);
 
     answer.push(orderedScores.at(-1)!);
   }
