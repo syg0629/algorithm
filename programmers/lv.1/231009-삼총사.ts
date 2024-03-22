@@ -1,35 +1,20 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/131705
 export {};
 
-// function solution(number: number[]): number {
-//   let count = 0;
-//   for (let i = 0; i < number.length; i++) {
-//     for (let j = 0; j < number.length; j++) {
-//       for (let e = 0; e < number.length; e++) {
-//         if (
-//           i !== j &&
-//           i !== e &&
-//           j !== e &&
-//           number[i] + number[j] + number[e] === 0
-//         ) {
-//           count++;
-//         }
-//       }
-//     }
-//   }
-//   // 같은 숫자가 들어간 배열이 자리만 바뀌어 총 6번 나오기 때문에 /6
-//   return count / 6;
-// }
+function* combination<T>(xs: T[], remainingPicks: number): Iterable<T[]> {
+  if (remainingPicks === 0) yield [];
+  for (const [i, x] of xs.entries()) {
+    for (const y of combination(xs.slice(i + 1), remainingPicks - 1)) {
+      yield [x, ...y];
+    }
+  }
+}
 
 function solution(number: number[]): number {
   let count: number = 0;
-  for (let i: number = 0; i < number.length; i++) {
-    for (let j: number = i + 1; j < number.length; j++) {
-      for (let e: number = j + 1; e < number.length; e++) {
-        if (number[i] + number[j] + number[e] === 0) {
-          count++;
-        }
-      }
+  for (const x of combination(number, 3)) {
+    if (x.reduce((x, y) => x + y, 0) === 0) {
+      count++;
     }
   }
   return count;
