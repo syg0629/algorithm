@@ -18,8 +18,9 @@ function solution(board: number[][]): number {
   for (let i = 0; i < len; i++) {
     for (let j = 0; j < len; j++) {
       if (board[i][j] === 1) {
-        range.forEach((v) => {
-          const [col, row] = [i + v[0], j + v[1]];
+        range.forEach(([colOffset, rowOffset]) => {
+          const col = i + colOffset;
+          const row = j + rowOffset;
           if (col >= 0 && col < len && row >= 0 && row < len) {
             dangerZone.add(col + " " + row);
           }
