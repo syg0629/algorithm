@@ -10,7 +10,7 @@ function solution(msg: string): number[] {
     dictionary.set(String.fromCharCode(i), i - 64);
   }
 
-  let index: number = 27;
+  let index: number = dictionary.size + 1;
   let curChar: string = "";
 
   for (const x of msg) {
