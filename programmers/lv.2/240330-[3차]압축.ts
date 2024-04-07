@@ -6,8 +6,10 @@ function solution(msg: string): number[] {
   const dictionary: Map<string, number> = new Map();
 
   //사전 초기화
-  for (let i = 65; i < 91; i++) {
-    dictionary.set(String.fromCharCode(i), i - 64);
+  const aAsciiCode = "A".charCodeAt(0);
+  const zAsciiCode = "Z".charCodeAt(0);
+  for (let i = aAsciiCode; i < zAsciiCode; i++) {
+    dictionary.set(String.fromCharCode(i), i - aAsciiCode - 1);
   }
 
   let index: number = dictionary.size + 1;
