@@ -12,11 +12,11 @@ export {};
 function solution(numbers: number[]): number[] {
   const answer: number[] = Array(numbers.length).fill(-1);
   const indices: number[] = [];
-  for (let i = 0; i < numbers.length; i++) {
+  for (const [i, x] of numbers.entries()) {
     //인덱스가 존재하고 존재하는 인덱스 숫자가 현재 숫자보다 다 낮을 경우
-    while (indices && numbers[indices.at(-1)!] < numbers[i]) {
+    while (indices.length > 0 && numbers[indices.at(-1)!] < x) {
       //answer 인덱스에 현재 숫자를 넣어줌
-      answer[indices.pop()!] = numbers[i];
+      answer[indices.pop()!] = x;
     }
     // 현재 인덱스를 넣음
     indices.push(i);
