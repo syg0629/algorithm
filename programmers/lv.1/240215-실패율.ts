@@ -18,8 +18,8 @@ function solution(N: number, stages: number[]): number[] {
   }
 
   return failureRates
-    .sort((a: number[], b: number[]) => b[1] - a[1])
-    .map((x) => x[0]);
+    .sort((a: [number, number], b: [number, number]) => b[1] - a[1])
+    .map((x: [number, number]) => x[0]);
 }
 
 console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); //[3,4,2,1,5]
