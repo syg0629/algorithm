@@ -2,22 +2,27 @@
 export {};
 
 function solution(priorities: number[], location: number): number {
-  let count: number = 0;
+  const queue: [number, number][] = priorities.map((priority, idx) => [
+    idx,
+    priority,
+  ]);
   let maxPriority: number = Math.max(...priorities);
+  let count: number = 0;
 
-  while (true) {
-    const curProcess: number = priorities.shift()!;
-
-    if (curProcess === maxPriority) {
-      count++;
-      if (location === 0) return count;
-      maxPriority = Math.max(...priorities);
+  while (queue.length > 0) {
+    const [idx, priority] = queue.shift()!;
+    if (priority < maxPriority) {
+      queue.push([idx, priority]);
     } else {
-      priorities.push(curProcess);
+      count++;
+      maxPriority = Math.max(...queue.map(([_, x]) => x));
+      if (idx === location) {
+        return count;
+      }
     }
-
-    location = location === 0 ? priorities.length - 1 : location - 1;
   }
+
+  return count;
 }
 
 console.log(solution([2, 1, 3, 2], 2)); //1
