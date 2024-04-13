@@ -3,15 +3,12 @@ export {};
 
 function timeRequiredToBuy(tickets: number[], k: number): number {
   let totalTime: number = 0;
+  const targetTicketCnt: number = tickets[k];
 
   for (let i = 0; i < tickets.length; i++) {
-    if (i <= k) {
-      // k 위치 이전에 있는 티켓
-      totalTime += Math.min(tickets[k], tickets[i]);
-    } else {
-      // k 위치 이후에 있는 티켓
-      totalTime += Math.min(tickets[k] - 1, tickets[i]);
-    }
+    const currentTicketCnt: number =
+      i <= k ? targetTicketCnt : targetTicketCnt - 1;
+    totalTime += Math.min(currentTicketCnt, tickets[i]);
   }
   return totalTime;
 }
