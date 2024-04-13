@@ -6,7 +6,7 @@ function twoSum(nums: number[], target: number): number[] {
 
   for (const [i, x] of nums.entries()) {
     const sub = target - x;
-    if (map.has(sub)) {
+    if (map.get(sub) !== undefined) {
       return [map.get(sub)!, i];
     }
     map.set(x, i);
