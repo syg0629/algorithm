@@ -3,15 +3,16 @@ export {};
 
 function solution(progresses: number[], speeds: number[]): number[] {
   const answer: number[] = [];
-  const workingDay: number[] = [];
-  progresses.map((x, i) => workingDay.push(Math.ceil((100 - x) / speeds[i])));
-  let maxDay: number = workingDay[0];
-  let cnt: number = 1;
-  for (let i = 1; i < workingDay.length; i++) {
-    if (workingDay[i] <= maxDay) {
+  const requiredDays: number[] = progresses.map((x, i) =>
+    Math.ceil((100 - x) / speeds[i])
+  );
+  let currentTarget: number = requiredDays[0];
+  let cnt: number = 0;
+  for (const x of requiredDays) {
+    if (x <= currentTarget) {
       cnt++;
     } else {
-      maxDay = workingDay[i];
+      currentTarget = x;
       answer.push(cnt);
       cnt = 1;
     }
