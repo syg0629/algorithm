@@ -1,4 +1,4 @@
-//https://www.acmicpc.net/problem/2667
+//https://www.acmicpc.net/problem/1012
 export {};
 
 const fs = require("fs");
@@ -11,6 +11,7 @@ const inputs = input
   .slice(1)
   .map((line: string) => line.split(" ").map(Number));
 
+// 현재 읽고 있는 위치를 추적
 let pointer = 0;
 
 for (let i = 0; i < testCases; i++) {
