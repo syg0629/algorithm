@@ -3,7 +3,7 @@ export {};
 
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input2.txt";
+  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input3.txt";
 const input = fs
   .readFileSync(filePath)
   .toString()
@@ -15,7 +15,7 @@ let [n, m, k] = input;
 let team = 0;
 
 while (true) {
-  if (n < 2 || m < 1 || n + k - 3 < k) break;
+  if (n < 2 || m < 1 || n + m - 3 < k) break;
   team++;
   n -= 2;
   m--;
