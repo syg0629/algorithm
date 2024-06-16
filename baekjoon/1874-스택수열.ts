@@ -10,8 +10,7 @@ const input = fs
   .trim()
   .split("\n")
   .map(Number);
-
-const iter = input.shift();
+input.shift();
 
 let ans = [];
 const stack = [];
