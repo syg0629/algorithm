@@ -13,7 +13,6 @@ const input = fs
 
 const [firstNum, secondNum] = input;
 
-// 소수를 판별하기 위함
 const isPrime = (num: number) => {
   if (num < 2) return false;
   for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -24,8 +23,6 @@ const isPrime = (num: number) => {
   console.log(num);
 };
 
-// 두 수 사이의 숫자를 순회하기 위함
 for (let i = firstNum; i <= secondNum; i++) {
-  if (isPrime(i)) {
-  }
+  isPrime(i);
 }
