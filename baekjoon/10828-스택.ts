@@ -1,8 +1,11 @@
+//https://www.acmicpc.net/problem/10828
 export {};
 
 const fs = require("fs");
-const filePath = process.platform === "linux" ? "/dev/stdin" : "/input.txt";
-const input = fs.readFileSync(filePath).toString().split("\n");
+const filePath =
+  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input.txt";
+
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 function solution(input: string[]) {
   const stack: number[] = [];

@@ -1,3 +1,6 @@
+//https://www.acmicpc.net/problem/1260
+export {};
+
 const fs = require("fs");
 const filePath =
   process.platform === "linux" ? "/dev/stdin" : __dirname + "/input.txt";
@@ -40,7 +43,7 @@ const dfs = (graph: number[][], startNode: number) => {
 const [n, edge, start]: number[] = input.shift()!.split(" ").map(Number);
 const grph: number[][] = [...Array(n + 1)].map(() => []);
 
-for (let i: number = 0; i < edge; i++) {
+for (let i = 0; i < edge; i++) {
   const [from, to]: number[] = input[i].split(" ").map(Number);
   grph[from].push(to);
   grph[to].push(from);
