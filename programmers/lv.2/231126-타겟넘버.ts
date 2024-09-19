@@ -2,17 +2,18 @@
 export {};
 
 function solution(numbers: number[], target: number): number {
-  function findTargetCnt(idx: number, sum: number): number {
-    if (idx === numbers.length) {
+  function countTargetSum(currentNumbers: number[], sum: number): number {
+    if (currentNumbers.length === 0) {
       return target === sum ? 1 : 0;
     }
 
-    const add: number = findTargetCnt(idx + 1, sum + numbers[idx]);
-    const subtract: number = findTargetCnt(idx + 1, sum - numbers[idx]);
+    const [first, ...rest] = currentNumbers;
+    const add: number = countTargetSum(rest, sum + first);
+    const subtract: number = countTargetSum(rest, sum - first);
 
     return add + subtract;
   }
-  return findTargetCnt(0, 0);
+  return countTargetSum(numbers, 0);
 }
 
 console.log(solution([1, 1, 1, 1, 1], 3)); //5
