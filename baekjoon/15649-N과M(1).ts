@@ -11,15 +11,19 @@ const [N, M] = fs
   .split(" ")
   .map(Number);
 
-const recur = (number: number, output: string) => {
+const answer: number[] = [];
+const recur = (number: number) => {
   if (number === M) {
-    console.log(output);
+    console.log(...answer);
     return;
   }
 
   for (let i = 1; i <= N; i++) {
-    recur(number + 1, output + i + " ");
+    if (answer.includes(i)) continue;
+    answer.push(i);
+    recur(number + 1);
+    answer.pop();
   }
 };
 
-recur(0, "");
+recur(0);
