@@ -1,4 +1,4 @@
-//https://www.acmicpc.net/problem/1026
+//https://www.acmicpc.net/problem/15650
 export {};
 
 const fs = require("fs");
