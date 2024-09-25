@@ -1,9 +1,9 @@
-//https://www.acmicpc.net/problem/15652
+//https://www.acmicpc.net/submit/15654
 export {};
 
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input1.txt";
+  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input2.txt";
 const [NM, arr] = fs.readFileSync(filePath).toString().trim().split("\n");
 const [N, M] = NM.split(" ").map(Number);
 const sortedArr = arr
@@ -13,13 +13,14 @@ const sortedArr = arr
 
 const answer: number[] = [];
 const recur = (start: number) => {
-  if (answer.length === M) {
+  if (start === M) {
     console.log(...answer);
     return;
   }
-  for (let i = start; i < N; i++) {
+  for (let i = 0; i < N; i++) {
+    if (answer.includes(sortedArr[i])) continue;
     answer.push(sortedArr[i]);
-    recur(i + 1);
+    recur(start + 1);
     answer.pop();
   }
 };
