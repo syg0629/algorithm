@@ -7,9 +7,28 @@ class Node {
 
 class LinkedList {
   constructor() {
-    //연결리스트의 시작 노드를 가리키는 head
     this.head = null;
-    //총 저장된 노드의 수를 저장하는 count
+    this.count = 0;
+  }
+
+  printAll() {
+    let currentNode = this.head;
+    let text = "[";
+
+    while (currentNode !== null) {
+      text += currentNode.data;
+      currentNode = currentNode.next;
+
+      if (currentNode !== null) {
+        text += ", ";
+      }
+    }
+    text += "]";
+    console.log(text);
+  }
+
+  clear() {
+    this.head = null;
     this.count = 0;
   }
 
@@ -17,15 +36,11 @@ class LinkedList {
     if (index > this.count || index < 0) {
       throw new Error("범위를 넘어갔습니다.");
     }
-    //매개변수 data를 Node의 생성자로 넘겨줘서 Node의 data를 설정해 줌
     const newNode = new Node(data);
-
-    //리스트의 가장 앞부분에 삽입하는 경우
     if (index === 0) {
       newNode.next = this.head;
       this.head = newNode;
     } else {
-      //삽입하려는 노드 바로 전까지 가기 위한 변수
       let currentNode = this.head;
       for (let i = 0; i < index - 1; i++) {
         currentNode = currentNode.next;
@@ -34,6 +49,36 @@ class LinkedList {
       currentNode.next = newNode;
     }
     this.count++;
+  }
+
+  insertLast(data) {
+    this.insertAt(this.count, data);
+  }
+
+  deleteAt(index) {
+    if (index >= this.count || index < 0) {
+      throw new Error("제거할 수 없습니다.");
+    }
+
+    let currentNode = this.head;
+    if (index === 0) {
+      const deletedNode = this.head;
+      this.head = this.head.next;
+      this.count--;
+      return deletedNode;
+    } else {
+      for (let i = 0; i < index - 1; i++) {
+        currentNode = currentNode.next;
+      }
+      const deletedNode = currentNode.next;
+      currentNode.next = currentNode.next.next;
+      this.count--;
+      return deletedNode;
+    }
+  }
+
+  deleteLast() {
+    return this.deleteAt(this.count - 1);
   }
 }
 
