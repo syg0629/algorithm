@@ -80,6 +80,19 @@ class LinkedList {
   deleteLast() {
     return this.deleteAt(this.count - 1);
   }
+
+  getNodeAt(index) {
+    if (index >= this.count || index < 0) {
+      throw new Error("범위를 넘어갔습니다.");
+    }
+
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
 }
 
 export { Node, LinkedList };
