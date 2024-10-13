@@ -3,15 +3,15 @@ export {};
 
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input.txt";
+  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input1.txt";
 const [_, ...input] = fs
   .readFileSync(filePath)
   .toString()
   .trim()
   .split("\n")
   .map((x: string) => x.split(" ").map(Number));
+const rank = [];
 
-const result = [];
 for (let i = 0; i < input.length; i++) {
   let grade = 1;
   for (let j = 0; j < input.length; j++) {
@@ -19,7 +19,7 @@ for (let i = 0; i < input.length; i++) {
       if (input[i][0] < input[j][0] && input[i][1] < input[j][1]) grade++;
     }
   }
-  result.push(grade);
+  rank.push(grade);
 }
 
-console.log(result.join(" "));
+console.log(rank.join(" "));
