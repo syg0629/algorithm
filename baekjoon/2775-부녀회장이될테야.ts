@@ -3,38 +3,34 @@ export {};
 
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input.txt";
-const input = fs
+  process.platform === "linux" ? "/dev/stdin" : __dirname + "/input1.txt";
+const [testCase, ...input] = fs
   .readFileSync(filePath)
   .toString()
   .trim()
   .split("\n")
   .map(Number);
 
-const T = input.shift();
+// dp배열 초기화(층은 0~14층 / 호는 1~14호)
+const dp = Array.from(Array(15), () => Array(15).fill(0));
 
-for (let t = 0; t < T; t++) {
-  const k = input.shift();
-  const n = input.shift();
+// 0층 각 호에 사는 사람들
+for (let j = 0; j < dp.length; j++) {
+  dp[0][j] = j;
+}
 
-  // 초기화
-  let prevFloor = Array.from({ length: n + 1 }, (_, idx) => idx);
-
-  for (let i = 1; i <= k; i++) {
-    const currentFloor: number[] = [];
-
-    // 각 호실의 사람 수 계산
-    for (let j = 0; j <= n; j++) {
-      if (j === 0) {
-        currentFloor[j] = 0; // 0호는 존재하지 않음
-      } else {
-        currentFloor[j] = currentFloor[j - 1] + prevFloor[j];
-      }
-    }
-    // 다음 층으로 이동
-    prevFloor = currentFloor;
+// 모든 층에 대한 dp
+for (let i = 1; i < dp.length; i++) {
+  for (let j = 1; j < dp.length; j++) {
+    dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
   }
+}
 
-  // k층 n호의 사람 수 출력
-  console.log(prevFloor[n]);
+// testCase처리
+for (let i = 0; i < testCase; i++) {
+  //층
+  const k = input[i * 2];
+  //호
+  const n = input[i * 2 + 1];
+  console.log(dp[k][n]);
 }
