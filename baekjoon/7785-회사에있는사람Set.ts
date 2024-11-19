@@ -6,13 +6,13 @@ const filePath =
   process.platform === "linux" ? "/dev/stdin" : __dirname + "/input1.txt";
 const [_, ...input] = fs.readFileSync(filePath).toString().trim().split("\n");
 
-const map = new Map();
+const set = new Set();
 for (const x of input) {
   const [name, records] = x.split(" ");
   if (records === "enter") {
-    map.set(name, true);
+    set.add(name);
   } else {
-    map.delete(name);
+    set.delete(name);
   }
 }
-console.log([...map.keys()].sort().reverse().join("\n"));
+console.log([...set].sort().reverse().join("\n"));
